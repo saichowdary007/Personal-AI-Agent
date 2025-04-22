@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "framer-motion": "^12.7.4",
+    "highlight.js": "^11.11.1",
+    "marked": "^15.0.9",
+    "tailwindcss": "^4.1.4"
+  }
+}

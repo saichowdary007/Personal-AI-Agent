@@ -192,3 +192,10 @@
 {"timestamp": "2025-04-22T03:11:30.402333", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
 {"timestamp": "2025-04-22T03:11:40.931302", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
 {"timestamp": "2025-04-22T03:11:41.888035", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-22T04:32:08.286385", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-22T04:32:08.287936", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-22T04:32:09.361581", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-22T04:32:41.831739", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-22T04:32:41.835050", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-22T04:32:42.859696", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-22T14:52:18.809048", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
