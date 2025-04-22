@@ -8,6 +8,10 @@
 !.yarn/releases
 !.yarn/versions
 
+# Python
+__pycache__/
+*.pyc
+
 # environment variables and secrets
 .env*
 config.js
@@ -37,3 +41,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.venv/

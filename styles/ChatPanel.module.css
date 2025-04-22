@@ -1,0 +1,40 @@
+.chatPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.history {
+  flex: 1;
+  overflow-y: auto;
+  background: #f7f7ff;
+  border-radius: 8px;
+  padding: 18px 16px;
+  margin-bottom: 10px;
+  min-height: 280px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.inputRow {
+  display: flex;
+  gap: 10px;
+}
+.input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #c9ada7;
+  font-size: 1rem;
+}
+.sendBtn {
+  background: #4a4e69;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.sendBtn:disabled {
+  background: #bcbcbc;
+  cursor: not-allowed;
+}

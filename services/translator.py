@@ -1,9 +1,9 @@
 from typing import Optional, Dict, Any
-from utils.llm_client import LLMClient
+# from utils.gemini_client import GeminiClient
 
 class TranslatorService:
-    def __init__(self, llm_client: LLMClient):
-        self.llm_client = llm_client
+    def __init__(self, gemini_client):
+        self.gemini_client = gemini_client
         self.system_prompt = """You are an expert language translator. Your task is to:
 1. Accurately translate the given text
 2. Maintain the original meaning and context
@@ -31,19 +31,19 @@ If specific terms should not be translated (like names or technical terms), pres
                 format_instruction = "\nMaintain the original text's formatting, including line breaks and special characters."
             
             # Generate translation
-            response = await self.llm_client.generate_response(
-                prompt=content,
-                system_prompt=f"{self.system_prompt}{format_instruction}\nTranslate to {target_language}.",
-                temperature=0.3  # Lower temperature for more accurate translations
+            translation_prompt = f"Translate the following text to {target_language} (preserve formatting and context):\n{content}"
+            response = await self.gemini_client.generate_response(
+                prompt=translation_prompt,
+                system_prompt=None,
+                temperature=0.3
             )
-            
             return {
-                "content": response["content"],
+                "content": response.get("content", ""),
                 "metadata": {
                     "source_length": len(content),
-                    "target_length": len(response["content"]),
+                    "target_length": len(response.get("content", "")),
                     "target_language": target_language,
-                    "model": response["model"]
+                    "model": response.get("model", "gemini-pro")
                 }
             }
         except Exception as e:

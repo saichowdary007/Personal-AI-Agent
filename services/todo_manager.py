@@ -41,23 +41,28 @@ class Task:
         return task
 
 class TodoManager:
-    def __init__(self, storage_file: str = "data/todos.json"):
-        self.storage_file = Path(storage_file)
-        self.storage_file.parent.mkdir(exist_ok=True)
-        self.tasks: Dict[int, Task] = {}
-        self._load_tasks()
+    def __init__(self, base_dir: str = "data/todos"):
+        self.base_dir = Path(base_dir)
+        self.base_dir.mkdir(parents=True, exist_ok=True)
 
-    def _load_tasks(self) -> None:
-        """Load tasks from storage file"""
-        try:
-            with open(self.storage_file, 'r') as f:
-                data = json.load(f)
-                self.tasks = {
-                    int(task_id): Task.from_dict(task_data)
-                    for task_id, task_data in data.items()
-                }
-        except FileNotFoundError:
-            self.tasks = {}
+    def _get_user_file(self, username: str) -> Path:
+        return self.base_dir / f"{username}.json"
+
+    def _load_tasks(self, username: str) -> Dict[int, Task]:
+        """Load tasks for a user from their storage file"""
+        user_file = self._get_user_file(username)
+        if not user_file.exists():
+            return {}
+        with open(user_file, 'r') as f:
+            data = json.load(f)
+            return {int(task_id): Task.from_dict(task_data) for task_id, task_data in data.items()}
+
+    def _save_tasks(self, username: str, tasks: Dict[int, Task]) -> None:
+        """Save a user's tasks to storage file"""
+        user_file = self._get_user_file(username)
+        with open(user_file, 'w') as f:
+            data = {str(task_id): task.to_dict() for task_id, task in tasks.items()}
+            json.dump(data, f, indent=2)
 
     def _save_tasks(self) -> None:
         """Save tasks to storage file"""
@@ -68,70 +73,69 @@ class TodoManager:
             }
             json.dump(data, f, indent=2)
 
-    async def process(self, content: str, parameters: Optional[dict] = None) -> dict:
-        """Process todo-related commands"""
+    async def process(self, username: str, content: str, parameters: Optional[dict] = None) -> dict:
+        """Process todo-related commands for a user"""
         command = content.lower().strip()
-        
         if command.startswith("add"):
             title = content[3:].strip()
-            return await self.add_task(title)
+            return await self.add_task(username, title)
         elif command.startswith("list"):
-            return await self.list_tasks()
+            return await self.list_tasks(username)
         elif command.startswith("complete"):
             try:
                 task_id = int(command.split()[1])
-                return await self.complete_task(task_id)
+                return await self.complete_task(username, task_id)
             except (IndexError, ValueError):
                 return {"content": "Please specify a valid task ID to complete"}
         elif command.startswith("delete"):
             try:
                 task_id = int(command.split()[1])
-                return await self.delete_task(task_id)
+                return await self.delete_task(username, task_id)
             except (IndexError, ValueError):
                 return {"content": "Please specify a valid task ID to delete"}
         else:
             return {"content": "Unknown command. Available commands: add, list, complete, delete"}
 
-    async def add_task(self, title: str) -> dict:
-        """Add a new task"""
+    async def add_task(self, username: str, title: str) -> dict:
+        """Add a new task for a user"""
+        tasks = self._load_tasks(username)
         task = Task(title=title)
-        task.id = max(self.tasks.keys(), default=0) + 1
-        self.tasks[task.id] = task
-        self._save_tasks()
+        task.id = max(tasks.keys(), default=0) + 1
+        tasks[task.id] = task
+        self._save_tasks(username, tasks)
         return {
             "content": f"Added task {task.id}: {task.title}",
             "metadata": {"task_id": task.id}
         }
 
-    async def list_tasks(self) -> dict:
-        """List all tasks"""
-        if not self.tasks:
+    async def list_tasks(self, username: str) -> dict:
+        """List all tasks for a user"""
+        tasks = self._load_tasks(username)
+        if not tasks:
             return {"content": "No tasks found"}
-        
         task_list = []
-        for task in self.tasks.values():
+        for task in tasks.values():
             status = "✓" if task.completed else "○"
             task_list.append(f"{status} {task.id}. {task.title}")
-        
         return {
             "content": "\n".join(task_list),
-            "metadata": {"task_count": len(self.tasks)}
+            "metadata": {"task_count": len(tasks)}
         }
 
-    async def complete_task(self, task_id: int) -> dict:
-        """Mark a task as completed"""
-        if task_id not in self.tasks:
+    async def complete_task(self, username: str, task_id: int) -> dict:
+        """Mark a user's task as completed"""
+        tasks = self._load_tasks(username)
+        if task_id not in tasks:
             return {"content": f"Task {task_id} not found"}
-        
-        self.tasks[task_id].completed = True
-        self._save_tasks()
+        tasks[task_id].completed = True
+        self._save_tasks(username, tasks)
         return {"content": f"Marked task {task_id} as completed"}
 
-    async def delete_task(self, task_id: int) -> dict:
-        """Delete a task"""
-        if task_id not in self.tasks:
+    async def delete_task(self, username: str, task_id: int) -> dict:
+        """Delete a user's task"""
+        tasks = self._load_tasks(username)
+        if task_id not in tasks:
             return {"content": f"Task {task_id} not found"}
-        
-        del self.tasks[task_id]
-        self._save_tasks()
-        return {"content": f"Deleted task {task_id}"} 
+        del tasks[task_id]
+        self._save_tasks(username, tasks)
+        return {"content": f"Deleted task {task_id}"}

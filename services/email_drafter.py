@@ -1,9 +1,9 @@
 from typing import Optional, Dict, Any
-from utils.llm_client import LLMClient
+from utils.gemini_client import GeminiClient
 
 class EmailDraftService:
-    def __init__(self, llm_client: LLMClient):
-        self.llm_client = llm_client
+    def __init__(self, gemini_client: GeminiClient):
+        self.gemini_client = gemini_client
         self.system_prompt = """You are an expert email writer. Your task is to:
 1. Draft clear, professional emails
 2. Maintain appropriate tone and formality
@@ -28,7 +28,7 @@ Format the email properly with line breaks and standard email structure."""
                 style_instruction += "\nFormat this as a forwarded email with appropriate context."
             
             # Generate email
-            response = await self.llm_client.generate_response(
+            response = await self.gemini_client.generate_response(
                 prompt=content,
                 system_prompt=f"{self.system_prompt}{style_instruction}",
                 temperature=0.7  # Balanced temperature for creativity and professionalism

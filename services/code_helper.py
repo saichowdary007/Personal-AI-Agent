@@ -1,5 +1,5 @@
 from typing import Optional, Dict, Any
-from utils.llm_client import LLMClient
+from utils.gemini_client import GeminiClient
 import logging
 import time
 import functools
@@ -11,8 +11,8 @@ except ImportError:
 logger = logging.getLogger(__name__)
 
 class CodeHelperService:
-    def __init__(self, llm_client: LLMClient):
-        self.llm_client = llm_client
+    def __init__(self, gemini_client: GeminiClient):
+        self.gemini_client = gemini_client
         # Base prompt for the LLM; keep it concise to avoid overloading context
         # Instruct the model to wrap code examples in markdown fences with a language tag for syntax highlighting
         self.system_prompt = (
@@ -56,7 +56,7 @@ class CodeHelperService:
             start_time = time.time()
             
             # Generate response
-            response = await self.llm_client.generate_response(
+            response = await self.gemini_client.generate_response(
                 prompt=content,
                 system_prompt=f"{self.system_prompt}{action_prompt}\nLanguage: {language}",
                 temperature=0.3  # Lower temperature for more precise code-related responses

@@ -1,12 +1,12 @@
 from typing import Optional, Dict, Any
 from utils.file_handler import FileHandler
 from utils.logger import logger
-from utils.llm_client import LLMClient
+from utils.gemini_client import GeminiClient
 import os
 
 class SummarizeService:
-    def __init__(self, llm_client: LLMClient, file_handler: FileHandler = FileHandler()):
-        self.llm_client = llm_client
+    def __init__(self, gemini_client: GeminiClient, file_handler: FileHandler = FileHandler()):
+        self.gemini_client = gemini_client
         self.file_handler = file_handler
         # System prompt for basic summarization
         self.system_prompt_base = """You are a text summarization expert. Please provide a clear and concise summary of the following text:"""
@@ -56,7 +56,7 @@ class SummarizeService:
             system_prompt = f"{self.system_prompt_base}{format_instruction}"
 
             # Generate summary using LLMClient
-            response = await self.llm_client.generate_response(
+            response = await self.gemini_client.generate_response(
                 prompt=text_to_summarize,
                 system_prompt=system_prompt,
                 temperature=0.3, 
