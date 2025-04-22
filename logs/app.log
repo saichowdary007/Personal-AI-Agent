@@ -1,0 +1,194 @@
+{"timestamp": "2025-04-16T18:04:49.909372", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 110}
+{"timestamp": "2025-04-16T18:04:49.915261", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-16T18:10:54.345606", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 110}
+{"timestamp": "2025-04-16T18:10:54.355371", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-16T18:14:49.416928", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 110}
+{"timestamp": "2025-04-16T18:14:49.419998", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-16T18:15:00.890155", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-16T18:15:00.897413", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-16T18:22:41.314734", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:22:45.610499", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:27:38.263315", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:27:40.046496", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:35:01.560208", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:35:01.560502", "level": "INFO", "message": "Processing chat with input: hi", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-16T18:35:02.598483", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-16T18:35:02.598742", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:36:44.658506", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:36:44.658849", "level": "INFO", "message": "Processing chat with input: hi", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-16T18:36:45.704540", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-16T18:36:45.704682", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:38:17.514583", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:38:25.409648", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:41:06.754123", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:41:06.754734", "level": "INFO", "message": "Processing chat with input: hi", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-16T18:41:07.608620", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-16T18:41:07.608883", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:43:40.524713", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:43:40.525583", "level": "INFO", "message": "Processing chat with input: hi", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-16T18:43:42.655101", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-16T18:43:42.655912", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:55:35.855225", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:55:35.861626", "level": "ERROR", "message": "Error during LLMClient summarization: 'LLMClient' object has no attribute 'model_name'", "module": "summarize", "function": "process", "line": 86, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/services/summarize.py\", line 47, in process\n    model = parameters.get(\"model\", self.llm_client.model_name) if parameters else self.llm_client.model_name\nAttributeError: 'LLMClient' object has no attribute 'model_name'"}
+{"timestamp": "2025-04-16T18:55:35.862051", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:56:01.676265", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:56:01.676568", "level": "INFO", "message": "Processing chat with input: hi", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-16T18:56:03.062611", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-16T18:56:03.063082", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:56:29.038814", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:56:37.879683", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:56:55.444137", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:56:58.525331", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T18:57:10.002423", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T18:57:19.817974", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T19:04:15.030101", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-16T19:04:15.030627", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-16T19:04:16.307890", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-16T19:04:16.311444", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-16T19:20:00.014475", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T19:20:04.239015", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T19:20:46.463956", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T19:20:50.411465", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T20:25:50.778088", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-16T20:25:50.778789", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-16T20:26:31.489583", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T20:26:39.584941", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-16T20:27:03.843335", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-16T20:27:06.548827", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:00:39.679269", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:00:49.889457", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:01:00.334101", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:01:00.334236", "level": "INFO", "message": "Processing chat with input: hello", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-18T21:01:01.352278", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-18T21:01:01.352343", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:01:11.597685", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:01:11.597856", "level": "INFO", "message": "Processing chat with input: 6 times 52", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-18T21:01:12.648473", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-18T21:01:12.648546", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:03:25.399347", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-18T21:03:25.400033", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-18T21:20:31.078540", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-18T21:20:31.083847", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-18T21:20:47.909607", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:20:47.909684", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:20:58.830774", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:20:58.830930", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:21:04.986910", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:21:04.987071", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:21:19.747107", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:21:26.688252", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:22:12.488647", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-18T21:22:12.488953", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-18T21:22:22.643084", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-18T21:22:22.647689", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-18T21:22:29.787375", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:22:29.787467", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:22:35.751449", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:22:44.292815", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:24:10.992047", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:24:10.992318", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:24:19.538127", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:24:22.190577", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:26:07.242914", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:26:07.243129", "level": "INFO", "message": "Processing chat with input: odd numbers  in python", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-18T21:26:09.607949", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-18T21:26:09.608561", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:27:31.971469", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-18T21:27:31.973045", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-18T21:27:39.569142", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-18T21:27:39.571371", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-18T21:27:56.289627", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:27:56.289711", "level": "INFO", "message": "Processing chat with input: even numbers in python", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-18T21:28:00.043678", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-18T21:28:00.043926", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:31:06.257221", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:31:10.731153", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:31:49.132199", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-18T21:31:49.133156", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-18T21:35:21.647776", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 111}
+{"timestamp": "2025-04-18T21:35:21.656120", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 113}
+{"timestamp": "2025-04-18T21:36:18.498747", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-18T21:36:18.502637", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-18T21:38:03.561364", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-18T21:38:03.562060", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-18T21:40:22.515275", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:40:22.515350", "level": "INFO", "message": "Processing chat with input: hi", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-18T21:40:23.527857", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-18T21:40:23.527932", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:40:30.111736", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:40:30.111974", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:40:42.937131", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:40:50.463251", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T21:41:05.290189", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T21:41:07.661178", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T22:15:49.649451", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-18T22:15:49.650228", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-18T22:16:24.022472", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T22:16:28.513581", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T22:17:32.677041", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-18T22:17:32.677302", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-18T22:17:34.624837", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-18T22:17:34.629546", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-18T22:21:53.120074", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T22:21:53.120153", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T22:22:00.474858", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T22:22:07.551407", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T22:23:13.092411", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T22:23:16.888077", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T22:23:37.391551", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T22:23:39.161326", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T22:23:57.534554", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-18T22:24:06.992306", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-18T22:56:59.692717", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-18T22:56:59.693700", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T17:07:03.488648", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T17:07:03.497703", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T17:09:31.856296", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T17:09:31.866458", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T17:13:00.837387", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T17:13:00.838447", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T17:18:45.928080", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T17:18:45.936161", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T17:38:11.366541", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T17:38:11.375726", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T17:41:11.675875", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T17:41:11.676642", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T17:49:35.867660", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T17:49:35.867905", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T17:53:01.913233", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T17:53:01.917509", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T19:39:04.809934", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T19:39:04.819090", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T20:40:41.850492", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T20:40:41.854909", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T20:41:50.670668", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T20:41:50.672466", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T21:22:52.290212", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-21T21:22:52.291203", "level": "INFO", "message": "Processing chat with input: hello", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-21T21:23:02.754878", "level": "ERROR", "message": "Error during LLMClient chat processing: RetryError[<Future at 0x1118617c0 state=finished raised Exception>]", "module": "chat", "function": "process", "line": 48, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/utils/llm_client.py\", line 57, in generate_response\n    \"content\": data[\"choices\"][0][\"message\"][\"content\"],\nKeyError: 'choices'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/utils/llm_client.py\", line 76, in generate_response\n    local_response.raise_for_status()\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/httpx/_models.py\", line 829, in raise_for_status\n    raise HTTPStatusError(message, request=request, response=self)\nhttpx.HTTPStatusError: Client error '404 Not Found' for url 'http://localhost:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/asyncio/__init__.py\", line 114, in __call__\n    result = await fn(*args, **kwargs)\n  File \"/Users/simba/Downloads/Personal AI Agent/utils/llm_client.py\", line 85, in generate_response\n    raise Exception(\"Both OpenRouter and local fallback failed.\")\nException: Both OpenRouter and local fallback failed.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/services/chat.py\", line 24, in process\n    response = await self.llm_client.generate_response(\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/asyncio/__init__.py\", line 189, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/asyncio/__init__.py\", line 111, in __call__\n    do = await self.iter(retry_state=retry_state)\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/asyncio/__init__.py\", line 153, in iter\n    result = await action(retry_state)\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/_utils.py\", line 99, in inner\n    return call(*args, **kwargs)\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/__init__.py\", line 421, in exc_check\n    raise retry_exc from fut.exception()\ntenacity.RetryError: RetryError[<Future at 0x1118617c0 state=finished raised Exception>]"}
+{"timestamp": "2025-04-21T21:23:02.755231", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-21T21:43:25.374428", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T21:43:25.376721", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-21T21:51:25.169318", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-21T21:51:25.169402", "level": "INFO", "message": "Processing chat with input: hello", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-21T21:51:38.373117", "level": "ERROR", "message": "Error during LLMClient chat processing: RetryError[<Future at 0x1055f4e50 state=finished raised Exception>]", "module": "chat", "function": "process", "line": 48, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/utils/llm_client.py\", line 57, in generate_response\n    \"content\": data[\"choices\"][0][\"message\"][\"content\"],\nKeyError: 'choices'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/utils/llm_client.py\", line 76, in generate_response\n    local_response.raise_for_status()\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/httpx/_models.py\", line 829, in raise_for_status\n    raise HTTPStatusError(message, request=request, response=self)\nhttpx.HTTPStatusError: Client error '404 Not Found' for url 'http://localhost:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/asyncio/__init__.py\", line 114, in __call__\n    result = await fn(*args, **kwargs)\n  File \"/Users/simba/Downloads/Personal AI Agent/utils/llm_client.py\", line 85, in generate_response\n    raise Exception(\"Both OpenRouter and local fallback failed.\")\nException: Both OpenRouter and local fallback failed.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal AI Agent/services/chat.py\", line 24, in process\n    response = await self.llm_client.generate_response(\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/asyncio/__init__.py\", line 189, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/asyncio/__init__.py\", line 111, in __call__\n    do = await self.iter(retry_state=retry_state)\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/asyncio/__init__.py\", line 153, in iter\n    result = await action(retry_state)\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/_utils.py\", line 99, in inner\n    return call(*args, **kwargs)\n  File \"/Users/simba/Downloads/Personal AI Agent/.venv/lib/python3.9/site-packages/tenacity/__init__.py\", line 421, in exc_check\n    raise retry_exc from fut.exception()\ntenacity.RetryError: RetryError[<Future at 0x1055f4e50 state=finished raised Exception>]"}
+{"timestamp": "2025-04-21T21:51:38.373541", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-21T22:14:30.841923", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 112}
+{"timestamp": "2025-04-21T22:14:30.843263", "level": "INFO", "message": "LLM client closed.", "module": "main", "function": "shutdown_event", "line": 114}
+{"timestamp": "2025-04-22T02:35:44.733695", "level": "INFO", "message": "Starting LLM Assistant API", "module": "main", "function": "<module>", "line": 249}
+{"timestamp": "2025-04-22T03:09:04.542013", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-22T03:09:04.542942", "level": "INFO", "message": "Processing chat with input: hi", "module": "chat", "function": "process", "line": 15}
+{"timestamp": "2025-04-22T03:09:05.709629", "level": "INFO", "message": "Chat response generated via LLMClient.", "module": "chat", "function": "process", "line": 32}
+{"timestamp": "2025-04-22T03:09:05.709762", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-22T03:09:23.473417", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-22T03:09:27.898757", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-22T03:10:05.743443", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-22T03:10:14.391769", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-22T03:10:29.707910", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-22T03:10:31.902124", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-22T03:10:41.890942", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-22T03:10:42.422069", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-22T03:11:29.827855", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-22T03:11:30.402333", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-22T03:11:40.931302", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-22T03:11:41.888035", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}

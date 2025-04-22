@@ -1,0 +1,29 @@
+# fly.toml file generated for llm-assistant on 2024-07-29T10:00:00Z
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+
+app = "llm-assistant" # Replace with the app name chosen during `fly launch`
+primary_region = "iad" # Example region, choose one close to you/your users: https://fly.io/docs/reference/regions/
+
+[build]
+  # No build section needed if using Dockerfile by default
+  # builder = "paketobuildpacks/builder:base"
+
+[http_service]
+  internal_port = 8000 # The port your app listens on inside the container (set in Dockerfile CMD)
+  force_https = true
+  auto_stop_machines = true # Can be set to false if you need it always running (might incur costs)
+  auto_start_machines = true
+  min_machines_running = 0 # Scales to 0 on free plan when idle
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256 # Start with the smallest size, adjust if needed (especially for embedding models)
+
+# --- Persistent Volume for Data --- 
+# This section defines a persistent volume named 'app_data'
+# You need to create this volume using `fly volumes create app_data --region <your-region> --size 1`
+[mounts]
+  source="app_data" # Must match the volume name created with `fly volumes create`
+  destination="/app/data" # Mount the volume to the /app/data directory inside the container 
