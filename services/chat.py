@@ -23,12 +23,25 @@ class ChatService:
     async def process(
         self, content: str, parameters: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
+        import logging
+        logger = logging.getLogger("ChatService")
+        if not content or not content.strip():
+            return {
+                "content": "Please enter a message to start the conversation.",
+                "metadata": {"error": "Empty message"}
+            }
         try:
             response = await self.gemini_client.generate_response(
-                prompt=content,
+                prompt=content.strip(),
                 system_prompt=self.system_prompt,
                 temperature=0.7
             )
+            if not response or not response.get("content"):
+                logger.warning("Gemini response was empty or malformed.")
+                return {
+                    "content": "Sorry, I couldn't generate a response. Please try again.",
+                    "metadata": {"error": "Empty LLM response"}
+                }
             return {
                 "content": response.get("content", ""),
                 "metadata": {
@@ -37,8 +50,9 @@ class ChatService:
                 }
             }
         except Exception as e:
+            logger.error(f"ChatService error: {e}")
             return {
-                "content": f"I apologize, but I encountered an error during chat: {e}",
+                "content": "Sorry, something went wrong while processing your message. Please try again or rephrase your question.",
                 "metadata": {"error": str(e)}
             }
 

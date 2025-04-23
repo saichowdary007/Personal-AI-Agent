@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import styles from '../styles/TranslatePanel.module.css';
 
 const LANGUAGES = [
@@ -12,9 +13,16 @@ export default function TranslatePanel({ token }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  const isInputValid = input.trim().length >= 2;
+
   const handleTranslate = async (e) => {
     e.preventDefault();
-    setLoading(true); setError(''); setResult('');
+    setError(''); setResult('');
+    if (!token) {
+      setError('You must be logged in to use the translation feature. Please sign in.');
+      return;
+    }
+    setLoading(true);
     try {
       const res = await fetch('http://localhost:8000/assist', {
         method: 'POST',
@@ -24,14 +32,20 @@ export default function TranslatePanel({ token }) {
         },
         body: JSON.stringify({ type: 'translate', content: input, parameters: { target_language: target } }),
       });
+      if (res.status === 401) {
+        setError('Session expired or unauthorized. Please log in again.');
+        setLoading(false);
+        return;
+      }
       if (!res.ok) throw new Error(await res.text());
       const data = await res.json();
       setResult(data.content);
     } catch (err) {
-      setError('Failed to translate.');
+      setError('Failed to translate. Please check your input and try again.');
     }
     setLoading(false);
   };
+
 
   return (
     <section className={styles.panel}>
@@ -51,11 +65,16 @@ export default function TranslatePanel({ token }) {
         >
           {LANGUAGES.map(lang => <option key={lang} value={lang}>{lang}</option>)}
         </select>
-        <button type="submit" className={styles.btn} disabled={loading || !input.trim()}>
+        <button type="submit" className={styles.btn} disabled={loading || !isInputValid}>
           {loading ? 'Translating...' : 'Translate'}
         </button>
       </form>
-      {result && <div className={styles.result}><strong>Translation:</strong> {result}</div>}
+      {result && (
+        <div className={styles.result}>
+          <strong>Translation:</strong>
+          <ReactMarkdown>{result}</ReactMarkdown>
+        </div>
+      )}
       {error && <div className={styles.error}>{error}</div>}
     </section>
   );

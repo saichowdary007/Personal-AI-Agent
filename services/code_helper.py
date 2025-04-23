@@ -36,6 +36,17 @@ class CodeHelperService:
     async def process(self, content: str, parameters: Optional[dict] = None) -> Dict[str, Any]:
         """Process code-related requests"""
         try:
+            # Input validation
+            if not content or not content.strip():
+                return {
+                    "content": "Please paste code or describe your coding problem.",
+                    "metadata": {"error": "Empty input"}
+                }
+            if len(content.strip()) < 5:
+                return {
+                    "content": "Please provide a more detailed code snippet or question.",
+                    "metadata": {"error": "Input too short"}
+                }
             # Quick greeting check: if the user says hello, respond with a friendly overview
             greeting = content.strip().lower()
             if greeting in {"hello", "hi", "hey", "good morning", "good afternoon", "good evening"}:
@@ -59,30 +70,41 @@ class CodeHelperService:
             response = await self.gemini_client.generate_response(
                 prompt=content,
                 system_prompt=f"{self.system_prompt}{action_prompt}\nLanguage: {language}",
-                temperature=0.3  # Lower temperature for more precise code-related responses
+                temperature=0.3
             )
-            
             elapsed = time.time() - start_time
-            logger.info("LLM response generated in %.2f seconds", elapsed)
-            
+            logger.info("LLM response time: %.2fs", elapsed)
+
+            # Optionally auto-format Python code with Black
+            if language == "python" and black and action in {"improve", "document"} and response.get("content"):
+                response["content"] = self._format_python_code(response["content"])
+
+            if not response or not response.get("content"):
+                logger.warning("LLM response was empty or malformed.")
+                return {
+                    "content": "Sorry, I couldn't process your code. Please try again.",
+                    "metadata": {"error": "Empty LLM response"}
+                }
+
             return {
-                "content": f"---\n{response['content']}\n---",
+                "content": response["content"],
                 "metadata": {
                     "action": action,
                     "language": language,
-                    "model": response["model"],
-                    "response_time": elapsed
+                    "model": response.get("model"),
+                    "elapsed": elapsed
                 }
             }
         except Exception as e:
+            logger.error("CodeHelperService error: %s", str(e))
             return {
-                "content": f"I apologize, but I encountered an error while processing the code: {str(e)}",
+                "content": "Sorry, something went wrong while processing your code. Please try again or rephrase your question.",
                 "metadata": {"error": str(e)}
             }
 
     @staticmethod
-    def format_code(code: str, language: str) -> str:
-        """Format code with proper indentation and style"""
+    def _format_python_code(code: str) -> str:
+        """Format Python code with proper indentation and style"""
         # Use Black formatter for Python if available
         if language.lower() == "python" and black:
             try:

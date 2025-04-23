@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import styles from '../styles/SummarizePanel.module.css';
 
 export default function SummarizePanel({ token }) {
@@ -6,6 +7,9 @@ export default function SummarizePanel({ token }) {
   const [summary, setSummary] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [format, setFormat] = useState('paragraph');
+
+  const isInputValid = input.trim().length >= 20 && input.trim().length <= 10000;
 
   const handleSummarize = async (e) => {
     e.preventDefault();
@@ -17,13 +21,13 @@ export default function SummarizePanel({ token }) {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ type: 'summarize', content: input }),
+        body: JSON.stringify({ type: 'summarize', content: input, parameters: { format } }),
       });
       if (!res.ok) throw new Error(await res.text());
       const data = await res.json();
       setSummary(data.content);
     } catch (err) {
-      setError('Failed to summarize.');
+      setError('Failed to summarize. Please check your input and try again.');
     }
     setLoading(false);
   };
@@ -39,11 +43,24 @@ export default function SummarizePanel({ token }) {
           onChange={e => setInput(e.target.value)}
           rows={4}
         />
-        <button type="submit" className={styles.btn} disabled={loading || !input.trim()}>
+        <div className={styles.formatRow}>
+          <label htmlFor="summary-format">Format:</label>
+          <select id="summary-format" value={format} onChange={e => setFormat(e.target.value)}>
+            <option value="paragraph">Paragraph</option>
+            <option value="bullets">Bullets</option>
+            <option value="outline">Outline</option>
+          </select>
+        </div>
+        <button type="submit" className={styles.btn} disabled={loading || !isInputValid}>
           {loading ? 'Summarizing...' : 'Summarize'}
         </button>
       </form>
-      {summary && <div className={styles.result}><strong>Summary:</strong> {summary}</div>}
+      {summary && (
+        <div className={styles.result}>
+          <strong>Summary:</strong>
+          <ReactMarkdown>{summary}</ReactMarkdown>
+        </div>
+      )}
       {error && <div className={styles.error}>{error}</div>}
     </section>
   );

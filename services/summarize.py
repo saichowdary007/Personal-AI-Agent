@@ -36,22 +36,41 @@ class SummarizeService:
             text_to_summarize = content
         else:
             return {
-                "content": "Error: Please provide either text content or a filename to summarize.",
+                "content": "Please provide text or upload a file to summarize.",
                 "metadata": {"error": "Missing input"}
+            }
+
+        # Input validation
+        if not text_to_summarize or not text_to_summarize.strip():
+            return {
+                "content": "Cannot summarize empty content. Please enter or upload text.",
+                "metadata": {"error": "Empty content"}
+            }
+        if len(text_to_summarize) < 20:
+            return {
+                "content": "Input is too short to summarize. Please provide more text.",
+                "metadata": {"error": "Input too short"}
+            }
+        if len(text_to_summarize) > 10000:
+            return {
+                "content": "Input is too long. Please provide less than 10,000 characters.",
+                "metadata": {"error": "Input too long"}
             }
 
         try:
             # Get parameters or use defaults
             max_length = parameters.get("max_length", 500) if parameters else 500
             format_type = parameters.get("format", "paragraph") if parameters else "paragraph"
-            model = parameters.get("model", self.llm_client.model) if parameters else self.llm_client.model
+            # model = parameters.get("model", self.llm_client.model) if parameters else self.llm_client.model
 
             # Adjust system prompt based on format
             format_instruction = f"\nAim for a summary length of approximately {max_length} characters."
             if format_type == "bullets":
-                format_instruction += "\nFormat the summary as bullet points."
+                format_instruction += "\nFormat the summary as bullet points. Highlight key points using bold text."
             elif format_type == "outline":
-                format_instruction += "\nFormat the summary as a hierarchical outline."
+                format_instruction += "\nFormat the summary as a hierarchical outline. Use indentation for subpoints."
+            else:
+                format_instruction += "\nFormat the summary as a concise paragraph."
             
             system_prompt = f"{self.system_prompt_base}{format_instruction}"
 

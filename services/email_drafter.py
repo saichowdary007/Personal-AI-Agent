@@ -15,6 +15,19 @@ Format the email properly with line breaks and standard email structure."""
 
     async def process(self, content: str, parameters: Optional[dict] = None) -> dict:
         """Process email drafting requests"""
+        import logging
+        logger = logging.getLogger("EmailDraftService")
+        # Input validation
+        if not content or not content.strip():
+            return {
+                "content": "Please describe the email you want to draft.",
+                "metadata": {"error": "Empty prompt"}
+            }
+        if len(content.strip()) < 10:
+            return {
+                "content": "Please provide a more detailed description for the email.",
+                "metadata": {"error": "Prompt too short"}
+            }
         try:
             # Get parameters or use defaults
             tone = parameters.get("tone", "professional") if parameters else "professional"
@@ -29,11 +42,16 @@ Format the email properly with line breaks and standard email structure."""
             
             # Generate email
             response = await self.gemini_client.generate_response(
-                prompt=content,
+                prompt=content.strip(),
                 system_prompt=f"{self.system_prompt}{style_instruction}",
                 temperature=0.7  # Balanced temperature for creativity and professionalism
             )
-            
+            if not response or not response.get("content"):
+                logger.warning("Gemini response was empty or malformed.")
+                return {
+                    "content": "Sorry, I couldn't generate the email draft. Please try again.",
+                    "metadata": {"error": "Empty LLM response"}
+                }
             return {
                 "content": response["content"],
                 "metadata": {
@@ -43,8 +61,9 @@ Format the email properly with line breaks and standard email structure."""
                 }
             }
         except Exception as e:
+            logger.error(f"EmailDraftService error: {e}")
             return {
-                "content": f"I apologize, but I encountered an error while drafting the email: {str(e)}",
+                "content": "Sorry, something went wrong while drafting your email. Please try again or rephrase your request.",
                 "metadata": {"error": str(e)}
             }
 

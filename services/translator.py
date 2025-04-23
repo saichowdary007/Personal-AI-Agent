@@ -15,7 +15,20 @@ If specific terms should not be translated (like names or technical terms), pres
 
     async def process(self, content: str, parameters: Optional[dict] = None) -> dict:
         """Process translation requests"""
+        import logging
+        logger = logging.getLogger("TranslatorService")
         try:
+            # Input validation
+            if not content or not content.strip():
+                return {
+                    "content": "Please enter text to translate.",
+                    "metadata": {"error": "Empty input"}
+                }
+            if len(content.strip()) < 2:
+                return {
+                    "content": "Please provide a longer text to translate.",
+                    "metadata": {"error": "Input too short"}
+                }
             if not parameters or "target_language" not in parameters:
                 return {
                     "content": "Please specify a target language for translation.",
@@ -37,6 +50,12 @@ If specific terms should not be translated (like names or technical terms), pres
                 system_prompt=None,
                 temperature=0.3
             )
+            if not response or not response.get("content"):
+                logger.warning("Gemini translation response was empty or malformed.")
+                return {
+                    "content": "Sorry, I couldn't translate your text. Please try again.",
+                    "metadata": {"error": "Empty LLM response"}
+                }
             return {
                 "content": response.get("content", ""),
                 "metadata": {
@@ -47,8 +66,9 @@ If specific terms should not be translated (like names or technical terms), pres
                 }
             }
         except Exception as e:
+            logger.error(f"TranslatorService error: {e}")
             return {
-                "content": f"I apologize, but I encountered an error while translating: {str(e)}",
+                "content": "Sorry, something went wrong while translating your text. Please try again or rephrase your request.",
                 "metadata": {"error": str(e)}
             }
 
