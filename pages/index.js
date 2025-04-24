@@ -39,7 +39,7 @@ export default function Home() {
     setError('');
     setLoading(true);
     try {
-      const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://process.env.NEXT_PUBLIC_API_URL';
+      const API_BASE = process.env.NEXT_PUBLIC_API_BASE || process.env.NEXT_PUBLIC_API_URL;
       const res = await fetch(`${API_BASE}/token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -82,7 +82,7 @@ export default function Home() {
     setMessages((m) => [...m, { from: 'You', content }]);
     setLoading(true);
     try {
-      const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://process.env.NEXT_PUBLIC_API_URL';
+      const API_BASE = process.env.NEXT_PUBLIC_API_BASE || process.env.NEXT_PUBLIC_API_URL;
       const res = await fetch(`${API_BASE}/assist`, {
         method: 'POST',
         headers: {
