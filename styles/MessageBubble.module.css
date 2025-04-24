@@ -1,4 +1,6 @@
 .userBubble {
+  animation: fadeIn 0.35s ease;
+
   background: #9a8c98;
   color: #fff;
   padding: 8px 14px;
@@ -10,6 +12,8 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 .aiBubble {
+  animation: fadeIn 0.35s ease;
+
   background: #fff;
   color: #22223b;
   padding: 8px 14px;
@@ -21,6 +25,7 @@
   border: 1px solid #c9ada7;
 }
 .from {
-  font-weight: 500;
-  margin-right: 7px;
+  font-weight: 600;
+  margin-right: 10px;
+  opacity: 0.85;
 }

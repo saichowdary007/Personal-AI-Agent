@@ -62,7 +62,7 @@ If specific terms should not be translated (like names or technical terms), pres
                     "source_length": len(content),
                     "target_length": len(response.get("content", "")),
                     "target_language": target_language,
-                    "model": response.get("model", "gemini-pro")
+                        # 'model' key omitted because generate_response does not return it
                 }
             }
         except Exception as e:

@@ -181,18 +181,14 @@ app.middleware("http")(PerformanceMiddleware())
 # Add compression middleware
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
-# Configure CORS
+# Configure CORS for development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:3001", 
-        "http://localhost:8000"
-    ],  # Production: Replace with specific domains
+    allow_origins=["http://localhost:3000"],  # Only allow frontend origin for credentials support
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    expose_headers=["X-Process-Time"],
+    expose_headers=["*"],
 )
 
 # --- Static Files ---
@@ -369,29 +365,39 @@ async def process_request(
         elif message.type == "translate":
             response = await translator_service.process(message.content, message.parameters)
         elif message.type == "chat":
-            response = await chat_service.process(message.content, message.parameters)
+            from services.chat import ChatRequest
+            conversation_history = message.parameters.get("conversation_history", []) if message.parameters else []
+            chat_request = ChatRequest(message=message.content, conversation_history=conversation_history)
+            response = await chat_service.process(chat_request)
         else:
             # This shouldn't happen due to validator, but keeping as a fallback
             logger.warning(f"Invalid request type received: {message.type}")
             raise HTTPException(status_code=400, detail=f"Invalid request type: {message.type}")
 
-        # Ensure metadata exists
-        if not response.get("metadata"):
-            response["metadata"] = {}
-            
-        # Add request metadata
-        response["metadata"]["request_type"] = message.type
-        response["metadata"]["timestamp"] = datetime.now().isoformat()
+        # Post-process and return
+        if isinstance(response, dict):
+            if "metadata" not in response:
+                response["metadata"] = {}
+            response["metadata"]["request_type"] = message.type
+            response["metadata"]["timestamp"] = datetime.now().isoformat()
+            content = response.get("content", "")
+            metadata = response.get("metadata", {})
+        else:
+            if not getattr(response, "metadata", None):
+                response.metadata = {}
+            response.metadata["request_type"] = message.type
+            response.metadata["timestamp"] = datetime.now().isoformat()
+            content = getattr(response, "content", "")
+            metadata = getattr(response, "metadata", {})
         
         # Log successful response
         log_response(
             service=message.type,
             action="process",
             status="success",
-            metadata=response.get("metadata")
+            metadata=metadata
         )
-
-        return response
+        return Response(content=content, metadata=metadata)
 
     except Exception as e:
         # Log error
@@ -521,6 +527,17 @@ async def health_check():
     }
 
 # --- Application Entry Point ---
+# --- LLM API Key Debug Logging ---
+from utils.gemini_client import GeminiClient
+import logging
+
+def log_gemini_key():
+    key = os.environ.get("GOOGLE_GEMINI_API_KEY", "")
+    masked = key[:4] + "..." + key[-4:] if key and len(key) > 8 else "NOT SET"
+    logging.info(f"[Startup] GOOGLE_GEMINI_API_KEY loaded: {masked}")
+
+log_gemini_key()
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     host = os.environ.get("HOST", "0.0.0.0")

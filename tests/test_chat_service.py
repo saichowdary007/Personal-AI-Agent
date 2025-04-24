@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import AsyncMock, patch
 
 from services.chat import ChatService
-from utils.llm_client import LLMClient
+from utils.gemini_client import GeminiClient
 
 # Use the mock LLM client from conftest.py
 @pytest.fixture

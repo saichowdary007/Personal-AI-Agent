@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import styles from '../styles/ChatPanel.module.css';
 
 export default function ChatPanel({ messages, content, setContent, onSend, loading, typing }) {
+  console.log("Current messages:", messages);
   const bottomRef = useRef(null);
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
 
@@ -12,7 +13,7 @@ export default function ChatPanel({ messages, content, setContent, onSend, loadi
       <div className={styles.history}>
         {messages.map((msg, idx) => (
           <MessageBubble key={idx} from={msg.from}>
-            <ReactMarkdown>{msg.text}</ReactMarkdown>
+            <ReactMarkdown>{msg.content || msg.text}</ReactMarkdown>
           </MessageBubble>
         ))}
         {typing && (

@@ -517,3 +517,761 @@
 {"timestamp": "2025-04-23T15:57:59.511328", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
 {"timestamp": "2025-04-23T15:58:03.602255", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
 {"timestamp": "2025-04-23T15:58:03.602824", "level": "INFO", "message": "Request: POST /assist - Time: 4.0928s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T19:58:13.078182", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 528}
+{"timestamp": "2025-04-23T19:58:13.658114", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T19:58:43.316081", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 288}
+{"timestamp": "2025-04-23T19:58:43.316663", "level": "INFO", "message": "Request: POST /token - Time: 0.2407s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T19:58:47.835792", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T19:58:48.528787", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T19:58:48.529060", "level": "INFO", "message": "Request: POST /assist - Time: 0.6949s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T19:58:57.725332", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T19:58:58.944463", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T19:58:58.945018", "level": "INFO", "message": "Request: POST /assist - Time: 1.2203s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T19:59:29.987408", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 288}
+{"timestamp": "2025-04-23T19:59:29.987776", "level": "INFO", "message": "Request: POST /token - Time: 0.2579s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:05:16.571981", "level": "INFO", "message": "Request: GET /todos - Time: 0.0006s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:05:16.574317", "level": "INFO", "message": "Request: GET /todos - Time: 0.0009s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:05:29.725134", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:05:29.725853", "level": "ERROR", "message": "Error during LLMClient summarization: name 'model' is not defined", "module": "summarize", "function": "process", "line": 105, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/services/summarize.py\", line 83, in process\n    model=model\n          ^^^^^\nNameError: name 'model' is not defined"}
+{"timestamp": "2025-04-23T20:05:29.726095", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:05:29.726345", "level": "INFO", "message": "Request: POST /assist - Time: 0.0019s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:07:59.462277", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:08:00.121408", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:08:00.121677", "level": "INFO", "message": "Request: POST /assist - Time: 0.6600s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:08:04.701392", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:08:05.375700", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:08:05.376185", "level": "INFO", "message": "Request: POST /assist - Time: 0.6761s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:09:46.971474", "level": "INFO", "message": "Request: GET /todos - Time: 0.0005s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:09:46.974283", "level": "INFO", "message": "Request: GET /todos - Time: 0.0005s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:09:51.047351", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:09:51.659096", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:09:51.659362", "level": "INFO", "message": "Request: POST /assist - Time: 0.6135s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:09:56.626654", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:09:57.159500", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:09:57.159720", "level": "INFO", "message": "Request: POST /assist - Time: 0.5340s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:10:18.471151", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:10:18.981242", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:10:18.981443", "level": "INFO", "message": "Request: POST /assist - Time: 0.5115s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:10:33.302189", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:10:34.510678", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:10:34.511104", "level": "INFO", "message": "Request: POST /assist - Time: 1.2095s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:10:42.797516", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:10:47.043839", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:10:47.044313", "level": "INFO", "message": "Request: POST /assist - Time: 4.2485s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:11:00.287719", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:11:02.048479", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:11:02.048851", "level": "INFO", "message": "Request: POST /assist - Time: 1.7639s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:11:10.639714", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:11:14.567102", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:11:14.567418", "level": "INFO", "message": "Request: POST /assist - Time: 3.9295s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:11:31.498318", "level": "INFO", "message": "Request: GET /todos - Time: 0.0009s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:11:31.500879", "level": "INFO", "message": "Request: GET /todos - Time: 0.0005s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:11:50.553517", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:11:52.871257", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:11:52.873201", "level": "INFO", "message": "Request: POST /assist - Time: 2.3204s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:12:11.928349", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:12:17.563551", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:12:17.564089", "level": "INFO", "message": "Request: POST /assist - Time: 5.6365s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:16:36.129168", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:16:36.928380", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:16:36.928710", "level": "INFO", "message": "Request: POST /assist - Time: 0.8001s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:17:41.908603", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:17:42.462940", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:17:42.463169", "level": "INFO", "message": "Request: POST /assist - Time: 0.5555s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:17:49.966064", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:17:50.552873", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:17:50.553103", "level": "INFO", "message": "Request: POST /assist - Time: 0.5878s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:18:36.784577", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:18:37.279245", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:18:37.279540", "level": "INFO", "message": "Request: POST /assist - Time: 0.4955s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:24:09.723409", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:24:09.724608", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:24:10.407466", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T20:24:50.832289", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:24:50.836944", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:24:51.538410", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T20:25:10.229306", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:25:10.943231", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:25:10.943626", "level": "INFO", "message": "Request: POST /assist - Time: 0.7161s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:25:25.283828", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:25:27.218582", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:25:27.218965", "level": "INFO", "message": "Request: POST /assist - Time: 1.9360s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:25:40.082660", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:25:40.591624", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:25:40.591857", "level": "INFO", "message": "Request: POST /assist - Time: 0.5100s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:25:44.277339", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:25:44.277596", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:25:44.968317", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T20:28:45.984242", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 528}
+{"timestamp": "2025-04-23T20:29:00.702225", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:29:00.702832", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 372, in process_request\n    response = await chat_service.process(message.content, message.parameters)\n                     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChatService.process() takes 2 positional arguments but 3 were given"}
+{"timestamp": "2025-04-23T20:29:00.703163", "level": "INFO", "message": "Request: POST /assist - Time: 0.0022s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:29:03.247948", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:29:03.248491", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 372, in process_request\n    response = await chat_service.process(message.content, message.parameters)\n                     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChatService.process() takes 2 positional arguments but 3 were given"}
+{"timestamp": "2025-04-23T20:29:03.248946", "level": "INFO", "message": "Request: POST /assist - Time: 0.0020s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:31:37.489654", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:31:37.489830", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:31:38.095077", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T20:31:57.901226", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:31:57.904337", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:31:58.491372", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T20:32:00.727132", "level": "INFO", "message": "Request: POST /assist - Time: 0.0008s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:32:01.899705", "level": "INFO", "message": "Request: POST /assist - Time: 0.0007s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:32:02.651691", "level": "INFO", "message": "Request: POST /assist - Time: 0.0011s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:33:46.220346", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:33:46.220525", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:33:46.788142", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T20:33:54.469395", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:33:54.475303", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:33:55.049698", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T20:33:58.276253", "level": "INFO", "message": "Request: POST /assist - Time: 0.0018s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:33:58.867958", "level": "INFO", "message": "Request: POST /assist - Time: 0.0014s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:33:59.269670", "level": "INFO", "message": "Request: POST /assist - Time: 0.0021s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:34:06.425493", "level": "INFO", "message": "Request: POST /assist - Time: 0.0016s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:34:07.333396", "level": "INFO", "message": "Request: POST /assist - Time: 0.0010s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:37:31.269572", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:37:31.269738", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:37:31.951062", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-23T20:37:34.172720", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-23T20:37:34.177310", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}
+{"timestamp": "2025-04-23T20:37:34.762521", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T20:38:04.779647", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T20:38:04.784654", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T20:38:05.372371", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T20:38:48.859597", "level": "INFO", "message": "Request: POST /assist - Time: 0.0009s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:38:49.423975", "level": "INFO", "message": "Request: POST /assist - Time: 0.0012s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:38:49.856823", "level": "INFO", "message": "Request: POST /assist - Time: 0.0006s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:38:55.447159", "level": "INFO", "message": "Request: POST /assist - Time: 0.0005s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:39:42.034959", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 284}
+{"timestamp": "2025-04-23T20:39:42.035363", "level": "INFO", "message": "Request: POST /token - Time: 0.2360s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:40:57.840641", "level": "INFO", "message": "Request: POST /assist - Time: 0.0008s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:40:59.051027", "level": "INFO", "message": "Request: POST /assist - Time: 0.0013s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:43:15.767404", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T20:43:15.767776", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T20:43:18.165810", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 524}
+{"timestamp": "2025-04-23T20:43:18.736576", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T20:43:33.335597", "level": "INFO", "message": "Request: POST /assist - Time: 0.0009s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:43:50.497039", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 284}
+{"timestamp": "2025-04-23T20:43:50.497407", "level": "INFO", "message": "Request: POST /token - Time: 0.2389s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:43:56.447999", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:43:56.626530", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:43:56.626753", "level": "INFO", "message": "Request: POST /assist - Time: 0.1814s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:43:59.947054", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:44:00.089354", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:44:00.089680", "level": "INFO", "message": "Request: POST /assist - Time: 0.1433s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:44:07.471264", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:44:07.641000", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:44:07.641318", "level": "INFO", "message": "Request: POST /assist - Time: 0.1714s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:44:12.205946", "level": "INFO", "message": "Request: GET /todos - Time: 0.0012s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:44:12.209599", "level": "INFO", "message": "Request: GET /todos - Time: 0.0008s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:44:18.179314", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:44:18.180336", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 368, in process_request\n    response = await chat_service.process(message.content, message.parameters)\n                     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChatService.process() takes 2 positional arguments but 3 were given"}
+{"timestamp": "2025-04-23T20:44:18.180927", "level": "INFO", "message": "Request: POST /assist - Time: 0.0024s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:48:57.047582", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T20:48:57.050048", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T20:52:26.742042", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 524}
+{"timestamp": "2025-04-23T20:52:27.318370", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T20:52:30.619744", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:52:30.855753", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:52:30.856252", "level": "INFO", "message": "Request: POST /assist - Time: 0.2381s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:52:31.550131", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:52:31.617846", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:52:31.618292", "level": "INFO", "message": "Request: POST /assist - Time: 0.0695s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:52:32.164329", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:52:32.245813", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:52:32.246133", "level": "INFO", "message": "Request: POST /assist - Time: 0.0825s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:53:33.111094", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:53:33.268066", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:53:33.268424", "level": "INFO", "message": "Request: POST /assist - Time: 0.1583s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:54:47.130399", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T20:54:47.131566", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T20:54:47.816361", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T20:55:55.917459", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T20:55:55.921788", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T20:57:37.015074", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 524}
+{"timestamp": "2025-04-23T20:57:37.591212", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T20:57:48.398932", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T20:57:48.399104", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T20:57:48.399421", "level": "INFO", "message": "Request: POST /assist - Time: 0.0020s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T20:58:07.305578", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T20:58:07.305755", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T20:58:07.996464", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:00:06.645654", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:00:06.650434", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:00:07.322818", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:00:13.498063", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:00:13.500728", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:00:14.094114", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:01:36.203358", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:01:36.207063", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:01:39.483374", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:01:55.440646", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:01:55.654358", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:01:55.654785", "level": "INFO", "message": "Request: POST /assist - Time: 0.2155s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:02:51.054942", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:02:51.055287", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:02:51.711812", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:03:06.043662", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:03:06.211774", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:03:06.212253", "level": "INFO", "message": "Request: POST /assist - Time: 0.1704s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:03:06.783404", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:03:06.859970", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:03:06.860378", "level": "INFO", "message": "Request: POST /assist - Time: 0.0783s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:03:07.247777", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:03:07.310891", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:03:07.311116", "level": "INFO", "message": "Request: POST /assist - Time: 0.0649s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:03:07.423402", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:03:07.492676", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:03:07.493015", "level": "INFO", "message": "Request: POST /assist - Time: 0.0705s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:03:07.643666", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:03:07.704495", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:03:07.704704", "level": "INFO", "message": "Request: POST /assist - Time: 0.0617s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:03:13.211210", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:03:13.384637", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:03:13.384904", "level": "INFO", "message": "Request: POST /assist - Time: 0.1749s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:03:24.474589", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:03:24.476141", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:03:27.000872", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 524}
+{"timestamp": "2025-04-23T21:03:27.572781", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:03:35.645764", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:03:35.795565", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:03:35.795813", "level": "INFO", "message": "Request: POST /assist - Time: 0.1514s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:06:07.327335", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:06:07.327763", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:06:08.016348", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:06:19.749579", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:06:19.753927", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:06:20.331223", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:06:34.951764", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 524}
+{"timestamp": "2025-04-23T21:06:56.550574", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:06:59.928244", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:06:59.929577", "level": "INFO", "message": "Request: POST /assist - Time: 3.3806s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:07:08.551949", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:07:09.160057", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:07:09.160717", "level": "INFO", "message": "Request: POST /assist - Time: 0.6097s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:07:10.554514", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:07:11.145296", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:07:11.145550", "level": "INFO", "message": "Request: POST /assist - Time: 0.5925s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:07:44.759191", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:07:44.759314", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:07:44.759611", "level": "INFO", "message": "Request: POST /assist - Time: 0.0012s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:07:54.133094", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:07:54.304367", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:07:54.304566", "level": "INFO", "message": "Request: POST /assist - Time: 0.1723s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:08:02.807576", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:08:07.677092", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:08:07.677454", "level": "INFO", "message": "Request: POST /assist - Time: 4.8716s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:08:10.200954", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:08:15.352939", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:08:15.353155", "level": "INFO", "message": "Request: POST /assist - Time: 5.1538s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:08:19.481618", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:08:20.062671", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:08:20.062939", "level": "INFO", "message": "Request: POST /assist - Time: 0.5835s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:08:43.601328", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:08:43.601687", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:08:44.182660", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:08:55.994860", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:08:56.630074", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:08:56.630811", "level": "INFO", "message": "Request: POST /assist - Time: 0.6372s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:08:57.431663", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:08:57.980510", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:08:57.981057", "level": "INFO", "message": "Request: POST /assist - Time: 0.5499s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:09:33.574567", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:09:38.709837", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:09:38.710075", "level": "INFO", "message": "Request: POST /assist - Time: 5.1364s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:10:11.417203", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:10:11.418673", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 368, in process_request\n    response = await chat_service.process(message.content, message.parameters)\n                     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChatService.process() takes 2 positional arguments but 3 were given"}
+{"timestamp": "2025-04-23T21:10:11.419721", "level": "INFO", "message": "Request: POST /assist - Time: 0.0038s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:12:26.223782", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:12:26.224312", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:12:26.917099", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:12:54.611404", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:12:54.617319", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:12:57.225263", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 524}
+{"timestamp": "2025-04-23T21:12:57.798810", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:13:09.459257", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:13:10.067830", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:13:10.068153", "level": "INFO", "message": "Request: POST /assist - Time: 0.6108s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:14:26.300064", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:14:29.710476", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:14:29.710756", "level": "INFO", "message": "Request: POST /assist - Time: 3.4115s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:14:37.964138", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:14:37.966072", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 368, in process_request\n    response = await chat_service.process(message.content, message.parameters)\n                     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChatService.process() takes 2 positional arguments but 3 were given"}
+{"timestamp": "2025-04-23T21:14:37.966525", "level": "INFO", "message": "Request: POST /assist - Time: 0.0034s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:14:56.131032", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:14:56.132410", "level": "ERROR", "message": "Error during LLMClient summarization: name 'model' is not defined", "module": "summarize", "function": "process", "line": 105, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/services/summarize.py\", line 83, in process\n    model=model\n          ^^^^^\nNameError: name 'model' is not defined"}
+{"timestamp": "2025-04-23T21:14:56.132613", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:14:56.132778", "level": "INFO", "message": "Request: POST /assist - Time: 0.0025s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:15:00.309147", "level": "INFO", "message": "Request: GET /todos - Time: 0.0018s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:15:00.313115", "level": "INFO", "message": "Request: GET /todos - Time: 0.0007s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:15:18.373455", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:15:18.375091", "level": "ERROR", "message": "Error in todo", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 362, in process_request\n    response = await todo_service.process(message.content, message.parameters)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/simba/Downloads/Personal-AI-Agent/services/todo_manager.py\", line 98, in process\n    command = content.lower().strip()\n              ^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'lower'"}
+{"timestamp": "2025-04-23T21:15:18.375449", "level": "INFO", "message": "Request: POST /assist - Time: 0.0026s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:15:19.318296", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:15:19.319112", "level": "ERROR", "message": "Error in todo", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 362, in process_request\n    response = await todo_service.process(message.content, message.parameters)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/simba/Downloads/Personal-AI-Agent/services/todo_manager.py\", line 98, in process\n    command = content.lower().strip()\n              ^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'lower'"}
+{"timestamp": "2025-04-23T21:15:19.319980", "level": "INFO", "message": "Request: POST /assist - Time: 0.0039s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:15:23.412667", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:15:24.012592", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:15:24.012808", "level": "INFO", "message": "Request: POST /assist - Time: 0.6011s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:15:30.690242", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:15:31.477252", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:15:31.477455", "level": "INFO", "message": "Request: POST /assist - Time: 0.7889s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:16:06.088852", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:16:06.089124", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:16:06.749361", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:16:19.038120", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:16:19.038779", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 368, in process_request\n    response = await chat_service.process(message.content, message.parameters)\n                     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChatService.process() takes 2 positional arguments but 3 were given"}
+{"timestamp": "2025-04-23T21:16:19.039206", "level": "INFO", "message": "Request: POST /assist - Time: 0.0027s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:16:32.464889", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:16:35.386511", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:16:35.387044", "level": "INFO", "message": "Request: POST /assist - Time: 2.9231s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:17:01.315981", "level": "INFO", "message": "Request: GET /todos - Time: 0.0011s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:17:01.319794", "level": "INFO", "message": "Request: GET /todos - Time: 0.0008s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:17:30.206836", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:17:30.791483", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-23T21:17:30.792048", "level": "INFO", "message": "Request: POST /assist - Time: 0.5857s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:19:04.703772", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:19:04.704128", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:19:05.409385", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:19:11.876502", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:19:11.879476", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:19:12.534110", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:19:51.745003", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:19:51.754511", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:23:29.739081", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 527}
+{"timestamp": "2025-04-23T21:23:30.305301", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:23:55.801912", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:23:56.449155", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 378, in process_request\n    if not response.get(\"metadata\"):\n           ^^^^^^^^^^^^\n  File \"/Users/simba/Downloads/Personal-AI-Agent/venv/lib/python3.13/site-packages/pydantic/main.py\", line 994, in __getattr__\n    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')\nAttributeError: 'ChatResponse' object has no attribute 'get'"}
+{"timestamp": "2025-04-23T21:23:56.450198", "level": "INFO", "message": "Request: POST /assist - Time: 0.6500s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:24:33.845997", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:24:33.846456", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:24:34.429098", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:24:56.943459", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:24:57.399470", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 380, in process_request\n    response.metadata.request_type = message.type\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'request_type' and no __dict__ for setting new attributes"}
+{"timestamp": "2025-04-23T21:24:57.399804", "level": "INFO", "message": "Request: POST /assist - Time: 0.4588s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:25:03.988061", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:25:04.637974", "level": "ERROR", "message": "Error in translate", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 379, in process_request\n    response.metadata = {}\n    ^^^^^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'metadata' and no __dict__ for setting new attributes"}
+{"timestamp": "2025-04-23T21:25:04.638554", "level": "INFO", "message": "Request: POST /assist - Time: 0.6515s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:25:12.447247", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:25:13.240169", "level": "ERROR", "message": "Error in code", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 379, in process_request\n    response.metadata = {}\n    ^^^^^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'metadata' and no __dict__ for setting new attributes"}
+{"timestamp": "2025-04-23T21:25:13.241040", "level": "INFO", "message": "Request: POST /assist - Time: 0.7946s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:25:43.832042", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:25:43.832310", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:25:44.427082", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:25:59.547796", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:26:00.032451", "level": "ERROR", "message": "Error in translate", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        request_type=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'request_type'"}
+{"timestamp": "2025-04-23T21:26:00.032989", "level": "INFO", "message": "Request: POST /assist - Time: 0.4864s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:26:10.772273", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:26:11.600623", "level": "ERROR", "message": "Error in code", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        request_type=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'request_type'"}
+{"timestamp": "2025-04-23T21:26:11.601111", "level": "INFO", "message": "Request: POST /assist - Time: 0.8300s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:26:51.835219", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:26:51.835713", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:26:52.419423", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:26:57.530142", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:26:58.401799", "level": "ERROR", "message": "Error in code", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        request_type=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'request_type'"}
+{"timestamp": "2025-04-23T21:26:58.402280", "level": "INFO", "message": "Request: POST /assist - Time: 0.8740s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:26:59.115897", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:26:59.935262", "level": "ERROR", "message": "Error in code", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        request_type=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'request_type'"}
+{"timestamp": "2025-04-23T21:26:59.935670", "level": "INFO", "message": "Request: POST /assist - Time: 0.8204s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:27:28.199027", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:27:28.199321", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:27:28.765378", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:27:33.526501", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:27:34.451961", "level": "ERROR", "message": "Error in code", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        service=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'user'"}
+{"timestamp": "2025-04-23T21:27:34.452490", "level": "INFO", "message": "Request: POST /assist - Time: 0.9274s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:27:39.649665", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:27:40.084156", "level": "ERROR", "message": "Error in translate", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        service=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'user'"}
+{"timestamp": "2025-04-23T21:27:40.085598", "level": "INFO", "message": "Request: POST /assist - Time: 0.4369s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:27:47.900113", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:27:52.583317", "level": "ERROR", "message": "Error in email", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        service=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'user'"}
+{"timestamp": "2025-04-23T21:27:52.583663", "level": "INFO", "message": "Request: POST /assist - Time: 4.6856s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:27:58.977055", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:27:59.639294", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 390, in process_request\n    content = response.content\n              ^^^^^^^^^^^^^^^^\n  File \"/Users/simba/Downloads/Personal-AI-Agent/venv/lib/python3.13/site-packages/pydantic/main.py\", line 994, in __getattr__\n    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')\nAttributeError: 'ChatResponse' object has no attribute 'content'"}
+{"timestamp": "2025-04-23T21:27:59.639901", "level": "INFO", "message": "Request: POST /assist - Time: 0.6636s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:28:07.768222", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:28:07.768625", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:28:10.680745", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 535}
+{"timestamp": "2025-04-23T21:28:11.258165", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:28:33.390758", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 535}
+{"timestamp": "2025-04-23T21:28:33.957316", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:28:56.939325", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 535}
+{"timestamp": "2025-04-23T21:29:42.522609", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 535}
+{"timestamp": "2025-04-23T21:29:43.120349", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:30:16.454059", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:30:16.912298", "level": "ERROR", "message": "Error in translate", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        service=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'user'"}
+{"timestamp": "2025-04-23T21:30:16.913058", "level": "INFO", "message": "Request: POST /assist - Time: 0.4602s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:30:23.502672", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:30:24.331904", "level": "ERROR", "message": "Error in code", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        service=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'user'"}
+{"timestamp": "2025-04-23T21:30:24.332377", "level": "INFO", "message": "Request: POST /assist - Time: 0.8304s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:30:25.837139", "level": "INFO", "message": "Request: GET /todos - Time: 0.0013s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:30:25.840805", "level": "INFO", "message": "Request: GET /todos - Time: 0.0008s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:30:32.873777", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:30:37.548193", "level": "ERROR", "message": "Error in email", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        service=message.type,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'user'"}
+{"timestamp": "2025-04-23T21:30:37.549249", "level": "INFO", "message": "Request: POST /assist - Time: 4.6765s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:30:44.606722", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:30:45.224657", "level": "ERROR", "message": "Error in chat", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 390, in process_request\n    content = response.content\n              ^^^^^^^^^^^^^^^^\n  File \"/Users/simba/Downloads/Personal-AI-Agent/venv/lib/python3.13/site-packages/pydantic/main.py\", line 994, in __getattr__\n    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')\nAttributeError: 'ChatResponse' object has no attribute 'content'"}
+{"timestamp": "2025-04-23T21:30:45.225453", "level": "INFO", "message": "Request: POST /assist - Time: 0.6207s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:31:38.131083", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:31:38.131379", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:31:38.727943", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:38:40.665958", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-23T21:38:41.705729", "level": "ERROR", "message": "Error in code", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 394, in process_request\n    log_response(\n    ~~~~~~~~~~~~^\n        content=message.content,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n        metadata=metadata\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: log_response() got an unexpected keyword argument 'content'"}
+{"timestamp": "2025-04-23T21:38:41.706098", "level": "INFO", "message": "Request: POST /assist - Time: 1.0415s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-23T21:39:13.074427", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:39:13.074657", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:39:13.667827", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-23T21:39:28.315795", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-23T21:39:28.318399", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-23T21:39:28.879424", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:00:24.927636", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 545}
+{"timestamp": "2025-04-24T04:00:25.504604", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:00:46.044445", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:00:46.537318", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:00:46.537771", "level": "INFO", "message": "Request: POST /assist - Time: 0.4954s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:00:55.520773", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:01:01.595721", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:01:01.596460", "level": "INFO", "message": "Request: POST /assist - Time: 6.0768s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:01:17.976400", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:01:19.202766", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:01:19.203010", "level": "INFO", "message": "Request: POST /assist - Time: 1.2285s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:01:27.118237", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:01:27.500110", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:01:27.500667", "level": "INFO", "message": "Request: POST /assist - Time: 0.3838s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:02:06.633127", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:02:07.025211", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:02:07.025430", "level": "INFO", "message": "Request: POST /assist - Time: 0.3938s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:06:07.075729", "level": "ERROR", "message": "Error during LLMClient summarization: GeminiClient.generate_response() got an unexpected keyword argument 'model'", "module": "summarize", "function": "process", "line": 105, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/services/summarize.py\", line 78, in process\n    response = await self.gemini_client.generate_response(\n                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        prompt=text_to_summarize,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n        model=\"gemini-pro\"\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\nTypeError: GeminiClient.generate_response() got an unexpected keyword argument 'model'"}
+{"timestamp": "2025-04-24T04:06:19.454060", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:06:19.454458", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:06:20.056732", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:06:23.950378", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-24T04:07:56.951456", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:07:56.956585", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:07:57.565579", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:08:03.222555", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:08:03.225778", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:08:03.791338", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:09:04.304515", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:09:04.308885", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:09:04.902856", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:09:09.953508", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:09:09.958625", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:09:10.546442", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:09:20.820921", "level": "INFO", "message": "Request: GET /todos - Time: 0.0013s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:09:20.823862", "level": "INFO", "message": "Request: GET /todos - Time: 0.0008s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:09:27.722926", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:09:32.586882", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:09:32.587173", "level": "INFO", "message": "Request: POST /assist - Time: 4.8654s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:09:47.793944", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:09:48.471900", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:09:48.472167", "level": "INFO", "message": "Request: POST /assist - Time: 0.6790s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:09:57.740602", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:09:58.008256", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:09:58.008491", "level": "INFO", "message": "Request: POST /assist - Time: 0.2686s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:10:04.948205", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:10:05.270398", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:10:05.270737", "level": "INFO", "message": "Request: POST /assist - Time: 0.3239s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:10:14.945289", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:10:15.399937", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-24T04:10:15.400135", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:10:15.400539", "level": "INFO", "message": "Request: POST /assist - Time: 0.4558s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:10:33.836076", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:10:34.266464", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-24T04:10:34.266557", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:10:34.266746", "level": "INFO", "message": "Request: POST /assist - Time: 0.4314s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:10:41.324638", "level": "INFO", "message": "Request: GET /todos - Time: 0.0020s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:10:41.329721", "level": "INFO", "message": "Request: GET /todos - Time: 0.0011s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:10:58.440179", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:10:58.441627", "level": "ERROR", "message": "Error in todo", "module": "logger", "function": "log_error", "line": 108, "exception": "Traceback (most recent call last):\n  File \"/Users/simba/Downloads/Personal-AI-Agent/main.py\", line 362, in process_request\n    response = await todo_service.process(message.content, message.parameters)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/simba/Downloads/Personal-AI-Agent/services/todo_manager.py\", line 98, in process\n    command = content.lower().strip()\n              ^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'lower'"}
+{"timestamp": "2025-04-24T04:10:58.442253", "level": "INFO", "message": "Request: POST /assist - Time: 0.0027s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:11:08.342743", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:11:08.674581", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:11:08.674799", "level": "INFO", "message": "Request: POST /assist - Time: 0.3332s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:11:55.142259", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:11:55.565621", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:11:55.565807", "level": "INFO", "message": "Request: POST /assist - Time: 0.4242s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:11:59.335431", "level": "INFO", "message": "Request: GET /todos - Time: 0.0004s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:11:59.337551", "level": "INFO", "message": "Request: GET /todos - Time: 0.0005s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:12:03.347018", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:12:03.670775", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:12:03.670961", "level": "INFO", "message": "Request: POST /assist - Time: 0.3249s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:13:46.934704", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:13:46.934956", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:13:48.434162", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:14:34.612090", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:14:34.619564", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:14:35.191685", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:14:48.422922", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:14:48.427201", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:14:48.993443", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:15:10.106164", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:15:10.113720", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:15:10.755273", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:15:14.297148", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:15:14.306447", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:15:16.620648", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 545}
+{"timestamp": "2025-04-24T04:15:17.184670", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:15:26.062189", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:15:26.411866", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:15:26.412584", "level": "INFO", "message": "Request: POST /assist - Time: 0.3539s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:15:35.947110", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:15:36.292639", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:15:36.293247", "level": "INFO", "message": "Request: POST /assist - Time: 0.3476s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:16:12.762082", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:16:13.154781", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:16:13.155216", "level": "INFO", "message": "Request: POST /assist - Time: 0.3956s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:30:31.414952", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:30:31.823259", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:30:31.823543", "level": "INFO", "message": "Request: POST /assist - Time: 0.4104s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:31:40.452453", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:31:40.822943", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:31:40.823358", "level": "INFO", "message": "Request: POST /assist - Time: 0.3722s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:35:42.289670", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:35:42.674466", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:35:42.674718", "level": "INFO", "message": "Request: POST /assist - Time: 0.3857s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:39:15.445826", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:39:15.789348", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:39:15.789704", "level": "INFO", "message": "Request: POST /assist - Time: 0.3449s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:43:14.283636", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:43:14.283883", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:43:14.937725", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:43:28.773442", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:43:28.777606", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:43:29.340704", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:43:50.028155", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:43:50.392471", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:43:50.393126", "level": "INFO", "message": "Request: POST /assist - Time: 0.3672s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:44:06.890835", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:44:07.287951", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:44:07.288148", "level": "INFO", "message": "Request: POST /assist - Time: 0.3981s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:45:23.114353", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:45:23.114615", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:45:23.673259", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:45:37.519422", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:45:37.525245", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:45:38.111255", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:45:52.962653", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:45:53.426236", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:45:53.426604", "level": "INFO", "message": "Request: POST /assist - Time: 0.4655s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:46:13.069541", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:46:13.069815", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:46:15.284728", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 545}
+{"timestamp": "2025-04-24T04:46:15.848203", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:46:30.015642", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:46:30.396514", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:46:30.396790", "level": "INFO", "message": "Request: POST /assist - Time: 0.3828s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:48:09.194547", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:48:09.194822", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:48:09.871228", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:48:34.722106", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:48:34.727516", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:48:35.333412", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:48:46.791328", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:48:47.225197", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:48:47.225425", "level": "INFO", "message": "Request: POST /assist - Time: 0.4353s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:52:08.105109", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:52:08.105492", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:52:08.756153", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:52:23.857726", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:52:24.366242", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:52:24.366582", "level": "INFO", "message": "Request: POST /assist - Time: 0.5112s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:53:23.645071", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:53:23.645390", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:53:24.293190", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:53:31.543673", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:53:31.899678", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:53:31.900218", "level": "INFO", "message": "Request: POST /assist - Time: 0.3583s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:54:46.152801", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:54:46.153239", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:54:46.846586", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:54:50.481109", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:54:50.486675", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:54:51.064771", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:54:59.397004", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:54:59.814964", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:54:59.815527", "level": "INFO", "message": "Request: POST /assist - Time: 0.4205s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:55:35.525578", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:55:35.525914", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:55:36.237882", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:56:08.069165", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:56:08.195839", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:56:08.196088", "level": "INFO", "message": "Request: POST /assist - Time: 0.1291s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:57:02.055121", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:57:02.055457", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:57:02.730147", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:57:08.648963", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:57:09.041403", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:57:09.041827", "level": "INFO", "message": "Request: POST /assist - Time: 0.3955s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:57:58.400462", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:57:58.400908", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:57:59.057889", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:58:15.325341", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:58:15.334728", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:58:17.664671", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 545}
+{"timestamp": "2025-04-24T04:58:18.229272", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:58:28.295644", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:58:28.813369", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:58:28.813870", "level": "INFO", "message": "Request: POST /assist - Time: 0.5199s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T04:59:38.569690", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T04:59:38.570006", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T04:59:39.236656", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T04:59:47.396740", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T04:59:47.943485", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T04:59:47.944052", "level": "INFO", "message": "Request: POST /assist - Time: 0.5489s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:35:17.933102", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T05:35:17.933622", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T05:35:18.614870", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T05:35:23.411499", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 545}
+{"timestamp": "2025-04-24T05:35:51.278242", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 545}
+{"timestamp": "2025-04-24T05:35:51.844997", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T05:36:32.087420", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 545}
+{"timestamp": "2025-04-24T05:36:54.417481", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:36:54.824461", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:36:54.824742", "level": "INFO", "message": "Request: POST /assist - Time: 0.4087s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:37:06.516388", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:37:07.144798", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:37:07.145024", "level": "INFO", "message": "Request: POST /assist - Time: 0.6295s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:37:13.668649", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:37:13.981436", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:37:13.981680", "level": "INFO", "message": "Request: POST /assist - Time: 0.3139s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:37:15.373293", "level": "INFO", "message": "Request: GET /todos - Time: 0.0008s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:37:15.376226", "level": "INFO", "message": "Request: GET /todos - Time: 0.0006s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:37:32.937667", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:37:33.399653", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-24T05:37:33.399762", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:37:33.399989", "level": "INFO", "message": "Request: POST /assist - Time: 0.4630s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:39:00.522161", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T05:39:00.522446", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T05:39:57.443439", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T05:40:15.339497", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:40:15.707177", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:40:15.707415", "level": "INFO", "message": "Request: POST /assist - Time: 0.3693s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:51:04.129818", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T05:51:04.130343", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T05:51:04.809737", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T05:51:08.897391", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:51:09.320811", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:51:09.321284", "level": "INFO", "message": "Request: POST /assist - Time: 0.4272s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:51:18.381722", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:51:18.867739", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:51:18.868402", "level": "INFO", "message": "Request: POST /assist - Time: 0.4874s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:53:44.431337", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:53:44.962041", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:53:44.962256", "level": "INFO", "message": "Request: POST /assist - Time: 0.5323s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:55:38.279219", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T05:55:38.279440", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T05:55:39.005699", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T05:55:41.430915", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 224}
+{"timestamp": "2025-04-24T05:55:41.435856", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 226}
+{"timestamp": "2025-04-24T05:56:10.805454", "level": "INFO", "message": "Starting LLM Assistant API on 0.0.0.0:8000", "module": "main", "function": "<module>", "line": 545}
+{"timestamp": "2025-04-24T05:56:11.379885", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 218}
+{"timestamp": "2025-04-24T05:56:24.125078", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:56:24.574577", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:56:24.574882", "level": "INFO", "message": "Request: POST /assist - Time: 0.4523s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:57:38.043761", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:57:38.445495", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:57:38.445752", "level": "INFO", "message": "Request: POST /assist - Time: 0.4025s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:58:34.934280", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:58:35.302359", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:58:35.302598", "level": "INFO", "message": "Request: POST /assist - Time: 0.3691s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T05:58:46.160583", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T05:58:47.254525", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T05:58:47.254724", "level": "INFO", "message": "Request: POST /assist - Time: 1.0957s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:05:48.314526", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:05:48.647061", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:05:48.647402", "level": "INFO", "message": "Request: POST /assist - Time: 0.3339s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:08:03.630306", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:08:03.937143", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:08:03.937685", "level": "INFO", "message": "Request: POST /assist - Time: 0.3079s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:09:08.189935", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:09:08.548152", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:09:08.548433", "level": "INFO", "message": "Request: POST /assist - Time: 0.3593s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:09:16.947550", "level": "INFO", "message": "Request: GET /todos - Time: 0.0005s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:09:16.949405", "level": "INFO", "message": "Request: GET /todos - Time: 0.0005s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:12:35.122227", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:12:35.619330", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:12:35.619538", "level": "INFO", "message": "Request: POST /assist - Time: 0.4986s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:13:03.489312", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:13:05.148257", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:13:05.148707", "level": "INFO", "message": "Request: POST /assist - Time: 1.6598s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:14:12.237634", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:14:13.735616", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:14:13.735828", "level": "INFO", "message": "Request: POST /assist - Time: 1.4989s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:18:44.654549", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:18:44.993406", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:18:44.993599", "level": "INFO", "message": "Request: POST /assist - Time: 0.3398s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:19:08.075228", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:19:08.414974", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:19:08.415163", "level": "INFO", "message": "Request: POST /assist - Time: 0.3407s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:23:13.503914", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:23:14.000125", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:23:14.000621", "level": "INFO", "message": "Request: POST /assist - Time: 0.4975s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T06:23:23.992649", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T06:23:24.946088", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T06:23:24.946355", "level": "INFO", "message": "Request: POST /assist - Time: 0.9555s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:25:00.539311", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:25:00.975085", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:25:00.975414", "level": "INFO", "message": "Request: POST /assist - Time: 0.4385s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:25:31.329819", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:25:31.839083", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:25:31.839305", "level": "INFO", "message": "Request: POST /assist - Time: 0.5106s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:26:02.224598", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:26:02.807459", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:26:02.807679", "level": "INFO", "message": "Request: POST /assist - Time: 0.5843s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:26:59.592708", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:27:00.301889", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-24T16:27:00.302092", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:27:00.302665", "level": "INFO", "message": "Request: POST /assist - Time: 0.7115s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:27:04.159554", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:27:05.014083", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-24T16:27:05.014318", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:27:05.015004", "level": "INFO", "message": "Request: POST /assist - Time: 0.8559s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:27:11.145236", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:27:11.972527", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-24T16:27:11.972613", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:27:11.972802", "level": "INFO", "message": "Request: POST /assist - Time: 0.8294s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:27:17.463981", "level": "INFO", "message": "Request: GET /todos - Time: 0.0012s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:27:17.466892", "level": "INFO", "message": "Request: GET /todos - Time: 0.0007s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:27:29.567168", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:27:31.457878", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:27:31.458298", "level": "INFO", "message": "Request: POST /assist - Time: 1.8917s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:27:50.425688", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:27:52.207897", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:27:52.208120", "level": "INFO", "message": "Request: POST /assist - Time: 1.7830s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:28:25.738366", "level": "INFO", "message": "Request: GET /todos - Time: 0.0006s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:28:25.740799", "level": "INFO", "message": "Request: GET /todos - Time: 0.0003s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:33:22.923910", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:33:23.350180", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:33:23.350381", "level": "INFO", "message": "Request: POST /assist - Time: 0.4274s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:34:44.664010", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:34:44.664094", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:34:44.664366", "level": "INFO", "message": "Request: POST /assist - Time: 0.0010s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:34:51.617486", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:34:51.617622", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:34:51.618075", "level": "INFO", "message": "Request: POST /assist - Time: 0.0016s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:34:52.593110", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:34:52.593239", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:34:52.593512", "level": "INFO", "message": "Request: POST /assist - Time: 0.0011s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:35:00.094719", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:35:00.503319", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:35:00.503606", "level": "INFO", "message": "Request: POST /assist - Time: 0.4096s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:35:59.288513", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:35:59.692945", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:35:59.693157", "level": "INFO", "message": "Request: POST /assist - Time: 0.4052s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:36:12.452145", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:36:12.844500", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:36:12.845293", "level": "INFO", "message": "Request: POST /assist - Time: 0.3943s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:36:19.763855", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:36:20.212076", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:36:20.212433", "level": "INFO", "message": "Request: POST /assist - Time: 0.4492s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:36:26.424690", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:36:26.916835", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:36:26.917239", "level": "INFO", "message": "Request: POST /assist - Time: 0.4935s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:36:37.779702", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:36:38.218952", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:36:38.219182", "level": "INFO", "message": "Request: POST /assist - Time: 0.4401s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:40:31.908125", "level": "INFO", "message": "Request: GET /todos - Time: 0.0005s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:40:31.910074", "level": "INFO", "message": "Request: GET /todos - Time: 0.0003s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:42:15.643140", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T16:42:15.643275", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T16:42:15.643549", "level": "INFO", "message": "Request: POST /assist - Time: 0.0010s", "module": "main", "function": "__call__", "line": 153}

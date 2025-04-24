@@ -1,14 +1,22 @@
-from fastapi import Depends, HTTPException
-from pydantic import BaseModel
-from typing import Optional, Dict, Any
+from fastapi import Depends, HTTPException, status
+from pydantic import BaseModel, Field
+from typing import Optional, Dict, Any, List
+import logging
 from utils.gemini_client import GeminiClient
 
 # Configure CORS to allow Next.js frontend
 # Removed
 
-class UserLogin(BaseModel):
-    username: str
-    password: str
+logger = logging.getLogger("ChatService")
+
+class ChatRequest(BaseModel):
+    message: str = Field(..., min_length=1, max_length=1000)
+    conversation_history: List[Dict[str, str]] = Field(default_factory=list)
+    temperature: float = Field(0.7, ge=0.0, le=1.0)
+
+class ChatResponse(BaseModel):
+    content: str
+    metadata: Dict[str, Any] = Field(default_factory=dict)
 
 class ChatService:
     """
@@ -20,41 +28,45 @@ class ChatService:
             "You are a helpful conversational AI assistant. Engage in dialogue and answer questions concisely."
         )
 
-    async def process(
-        self, content: str, parameters: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
-        import logging
-        logger = logging.getLogger("ChatService")
-        if not content or not content.strip():
-            return {
-                "content": "Please enter a message to start the conversation.",
-                "metadata": {"error": "Empty message"}
-            }
+    async def process(self, request: ChatRequest) -> ChatResponse:
+        """Process a chat request with conversation history"""
         try:
-            response = await self.gemini_client.generate_response(
-                prompt=content.strip(),
-                system_prompt=self.system_prompt,
-                temperature=0.7
+            # Build context from conversation history
+            context = "\n".join(
+                [f"{msg['role']}: {msg['content']}" 
+                 for msg in request.conversation_history]
             )
-            if not response or not response.get("content"):
-                logger.warning("Gemini response was empty or malformed.")
-                return {
-                    "content": "Sorry, I couldn't generate a response. Please try again.",
-                    "metadata": {"error": "Empty LLM response"}
+            
+            full_prompt = f"{context}\nuser: {request.message}"
+            
+            response = await self.gemini_client.generate_response(
+                prompt=full_prompt,
+                temperature=request.temperature
+            )
+            logger.info(f"Raw Gemini response: {response}")
+            
+            content = response.get("content") if response else None
+            if not content or not isinstance(content, str) or not content.strip():
+                logger.warning("Empty or missing response from Gemini")
+                return ChatResponse(
+                    content="[Gemini] No meaningful content returned.",
+                    metadata={"error": "empty_content"}
+                )
+                
+            return ChatResponse(
+                content=response["content"],
+                metadata={
+                    "usage": response.get("usage"),
+                    "conversation_id": response.get("conversation_id")
                 }
-            return {
-                "content": response.get("content", ""),
-                "metadata": {
-                    "model": response.get("model"),
-                    "usage": response.get("usage")
-                }
-            }
+            )
+            
         except Exception as e:
-            logger.error(f"ChatService error: {e}")
-            return {
-                "content": "Sorry, something went wrong while processing your message. Please try again or rephrase your question.",
-                "metadata": {"error": str(e)}
-            }
+            logger.error(f"Chat processing failed: {str(e)}", exc_info=True)
+            return ChatResponse(
+                message="Sorry, an error occurred processing your request.",
+                metadata={"error": str(e)}
+            )
 
 if __name__ == "__main__":
     import uvicorn

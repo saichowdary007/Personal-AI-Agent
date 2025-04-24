@@ -10,10 +10,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Security configuration
-SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-here")
+# Security configuration - Update these in production!
+SECRET_KEY = os.getenv("SECRET_KEY", "super-secret-key-1234")
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ACCESS_TOKEN_EXPIRE_MINUTES = 1440  # 24 hours for development
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -126,4 +126,4 @@ class RateLimiter:
         self.requests[user_id].append(now)
         return True
 
-rate_limiter = RateLimiter() 
+rate_limiter = RateLimiter()

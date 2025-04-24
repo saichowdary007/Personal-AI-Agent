@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import styles from '../styles/AppLayout.module.css';
 import ChatPanel from '../components/ChatPanel';
 import SummarizePanel from '../components/SummarizePanel';
 import EmailPanel from '../components/EmailPanel';
@@ -77,7 +78,7 @@ export default function Home() {
   const handleSend = async (e) => {
     e.preventDefault();
     if (!content.trim()) return;
-    setMessages((m) => [...m, { from: 'You', text: content }]);
+    setMessages((m) => [...m, { from: 'You', content }]);
     setLoading(true);
     try {
       const res = await fetch('http://localhost:8000/assist', {
@@ -93,7 +94,7 @@ export default function Home() {
         setMessages((m) => [...m, { from: 'Error', text: errText }]);
       } else {
         const data = await res.json();
-        setMessages((m) => [...m, { from: 'AI', text: data.content }]);
+        setMessages((m) => [...m, { from: 'AI', content: data.content }]);
       }
       setContent('');
     } catch (err) {
@@ -139,11 +140,11 @@ export default function Home() {
   }
 
   return (
-    <div className="app-container">
+    <div className={styles.appContainer}>
       <Sidebar active={view} onNavigate={setView} />
-      <div className="main-content">
+      <div className={styles.mainContent}>
         <Header user={user} onLogout={handleLogout} />
-        <div style={{ flex: 1, padding: '32px 0', overflow: 'auto' }}>
+        <div className={styles.panelArea}>
           {view === 'chat' && (
             <ChatPanel
               messages={messages}
@@ -157,10 +158,10 @@ export default function Home() {
           {view === 'email' && <EmailPanel token={token} />}
           {view === 'todo' && <TodoPanel token={token} />}
           {view === 'translate' && (
-  <ErrorBoundary>
-    <TranslatePanel token={token} />
-  </ErrorBoundary>
-)}
+            <ErrorBoundary>
+              <TranslatePanel token={token} />
+            </ErrorBoundary>
+          )}
           {view === 'code' && <CodePanel token={token} />}
         </div>
       </div>

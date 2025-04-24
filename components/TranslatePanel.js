@@ -28,8 +28,9 @@ export default function TranslatePanel({ token }) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          'Authorization': `Bearer ${token}`
         },
+        credentials: 'include',
         body: JSON.stringify({ type: 'translate', content: input, parameters: { target_language: target } }),
       });
       if (res.status === 401) {

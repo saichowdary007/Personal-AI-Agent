@@ -80,7 +80,7 @@ class SummarizeService:
                 system_prompt=system_prompt,
                 temperature=0.3, 
                 max_tokens=1000,
-                model=model
+
             )
             
             logger.info("Summary generated via LLMClient.")
@@ -90,7 +90,7 @@ class SummarizeService:
                 "original_length": len(text_to_summarize),
                 "summary_length": len(response["content"]),
                 "format": format_type,
-                "model": response.get("model", model),
+                # 'model' key omitted because 'model' variable is not defined without the argument
                 "usage": response.get("usage")
             })
             
