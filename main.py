@@ -350,45 +350,23 @@ async def process_request(
     - **translate**: Language translation
     - **code**: Programming assistance
     """
-    # Rate limiting check
-    if not rate_limiter.is_allowed(current_user.username):
-        logger.warning(f"Rate limit exceeded for user: {current_user.username}")
-        raise HTTPException(
-            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-            detail="Rate limit exceeded. Please try again later."
-        )
-
     try:
-        # Log request
-        log_request(
-            service=message.type,
-            action="process",
-            content=message.content if message.content else "(params only)",
-            parameters=message.parameters
-        )
-
-        # Process request based on type
-        response = None
-        if message.type == "summarize":
-            response = await summarize_service.process(message.content, message.parameters)
+        if message.type == "chat":
+            response = await chat_service.chat(message.content, current_user.username)
+        elif message.type == "summarize":
+            response = await summarize_service.summarize(message)
         elif message.type == "email":
-            response = await email_service.process(message.content, message.parameters)
+            response = await email_service.generate(message)
         elif message.type == "todo":
-            response = await todo_service.process(message.content, message.parameters)
-        elif message.type == "code":
-            response = await code_service.process(message.content, message.parameters)
+            response = await todo_service.handle(message, current_user.username)
         elif message.type == "translate":
-            response = await translator_service.process(message.content, message.parameters)
-        elif message.type == "chat":
-            from services.chat import ChatRequest
-            conversation_history = message.parameters.get("conversation_history", []) if message.parameters else []
-            chat_request = ChatRequest(message=message.content, conversation_history=conversation_history)
-            response = await chat_service.process(chat_request)
+            response = await translator_service.translate(message)
+        elif message.type == "code":
+            response = await code_service.help(message)
         else:
-            # This shouldn't happen due to validator, but keeping as a fallback
             logger.warning(f"Invalid request type received: {message.type}")
             raise HTTPException(status_code=400, detail=f"Invalid request type: {message.type}")
-
+        
         # Post-process and return
         if isinstance(response, dict):
             if "metadata" not in response:
@@ -404,8 +382,7 @@ async def process_request(
             response.metadata["timestamp"] = datetime.now().isoformat()
             content = getattr(response, "content", "")
             metadata = getattr(response, "metadata", {})
-        
-        # Log successful response
+
         log_response(
             service=message.type,
             action="process",
@@ -415,19 +392,31 @@ async def process_request(
         return Response(content=content, metadata=metadata)
 
     except Exception as e:
-        # Log error
         error_id = log_error(
             service=message.type,
             action="process",
             error=e,
             context={"content": message.content, "parameters": message.parameters}
         )
-        
-        # Return structured error response
         raise HTTPException(
             status_code=500, 
             detail=f"An error occurred processing your {message.type} request (Error ID: {error_id})"
         )
+
+# Add a second route for /api/assist for compatibility
+@app.post(
+    "/api/assist", 
+    response_model=Response, 
+    tags=["Assistant"], 
+    summary="Process any assistant request (alt route)",
+    description="Unified endpoint for all AI assistant capabilities (alt)",
+    response_description="Assistant-generated content with metadata"
+)
+async def process_request_alt(
+    message: Message,
+    current_user: User = Depends(get_current_active_user)
+):
+    return await process_request(message, current_user)
 
 # --- Todo Management Routes ---
 @app.get(
