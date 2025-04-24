@@ -25,7 +25,7 @@ import json
 import fitz  # PyMuPDF
 
 # Import services
-from services.chat import ChatService
+from services.chat import ChatService, ChatRequest
 from services.summarize import SummarizeService
 from services.email_drafter import EmailDraftService
 from services.todo_manager import TodoManager
