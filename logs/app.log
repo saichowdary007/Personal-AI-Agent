@@ -1275,3 +1275,7 @@
 {"timestamp": "2025-04-24T16:42:15.643140", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
 {"timestamp": "2025-04-24T16:42:15.643275", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
 {"timestamp": "2025-04-24T16:42:15.643549", "level": "INFO", "message": "Request: POST /assist - Time: 0.0010s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:45:32.048241", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 284}
+{"timestamp": "2025-04-24T16:45:32.048672", "level": "INFO", "message": "Request: POST /token - Time: 0.2439s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T16:45:38.675209", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 284}
+{"timestamp": "2025-04-24T16:45:38.675523", "level": "INFO", "message": "Request: POST /token - Time: 0.2356s", "module": "main", "function": "__call__", "line": 153}
