@@ -292,6 +292,17 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
+# Add a second route for /api/token for compatibility
+@app.post(
+    "/api/token", 
+    response_model=Token, 
+    tags=["Authentication"],
+    summary="Get access token (alt route)",
+    response_description="Access token for API operations"
+)
+async def login_for_access_token_alt(form_data: OAuth2PasswordRequestForm = Depends()):
+    return await login_for_access_token(form_data)
+
 @app.get(
     "/users/me", 
     response_model=User, 
