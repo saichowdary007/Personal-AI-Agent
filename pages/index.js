@@ -39,7 +39,8 @@ export default function Home() {
     setError('');
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/token', {
+      const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000';
+      const res = await fetch(`${API_BASE}/token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ username, password }),
@@ -81,7 +82,8 @@ export default function Home() {
     setMessages((m) => [...m, { from: 'You', content }]);
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/assist', {
+      const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000';
+      const res = await fetch(`${API_BASE}/assist`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
