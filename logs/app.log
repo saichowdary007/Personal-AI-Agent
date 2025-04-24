@@ -1312,3 +1312,28 @@
 {"timestamp": "2025-04-24T17:58:57.779523", "level": "INFO", "message": "Request: POST /token - Time: 0.2439s", "module": "main", "function": "__call__", "line": 153}
 {"timestamp": "2025-04-24T17:59:06.731435", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 287}
 {"timestamp": "2025-04-24T17:59:06.731974", "level": "INFO", "message": "Request: POST /token - Time: 0.2322s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:16:30.771996", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 287}
+{"timestamp": "2025-04-24T18:16:30.772310", "level": "INFO", "message": "Request: POST /token - Time: 0.2468s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:35:42.116440", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 287}
+{"timestamp": "2025-04-24T18:35:42.117959", "level": "INFO", "message": "Request: POST /token - Time: 0.2321s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:48:28.388818", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 227}
+{"timestamp": "2025-04-24T18:48:28.389032", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 229}
+{"timestamp": "2025-04-24T18:48:29.028186", "level": "INFO", "message": "\ud83d\ude80 Starting LLM Assistant API", "module": "main", "function": "startup_event", "line": 222}
+{"timestamp": "2025-04-24T18:56:30.237181", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 288}
+{"timestamp": "2025-04-24T18:56:30.237765", "level": "INFO", "message": "Request: POST /token - Time: 0.2368s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:57:04.096675", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T18:57:04.750137", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T18:57:04.750394", "level": "INFO", "message": "Request: POST /assist - Time: 0.6553s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:57:19.185747", "level": "INFO", "message": "Request received", "module": "logger", "function": "log_request", "line": 74}
+{"timestamp": "2025-04-24T18:57:22.057425", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-24T18:57:22.057686", "level": "INFO", "message": "Request: POST /assist - Time: 2.8729s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:58:30.155479", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 288}
+{"timestamp": "2025-04-24T18:58:30.156038", "level": "INFO", "message": "Request: POST /token - Time: 0.2565s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:58:36.740943", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 288}
+{"timestamp": "2025-04-24T18:58:36.741291", "level": "INFO", "message": "Request: POST /token - Time: 0.2453s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:58:54.360380", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 288}
+{"timestamp": "2025-04-24T18:58:54.360718", "level": "INFO", "message": "Request: POST /token - Time: 0.2566s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T18:59:50.408798", "level": "INFO", "message": "Successful login for user: testuser", "module": "main", "function": "login_for_access_token", "line": 288}
+{"timestamp": "2025-04-24T18:59:50.409096", "level": "INFO", "message": "Request: POST /token - Time: 0.2364s", "module": "main", "function": "__call__", "line": 153}
+{"timestamp": "2025-04-24T19:03:06.426359", "level": "INFO", "message": "Closing LLM client...", "module": "main", "function": "shutdown_event", "line": 228}
+{"timestamp": "2025-04-24T19:03:06.426859", "level": "INFO", "message": "LLM client closed. Application shutting down.", "module": "main", "function": "shutdown_event", "line": 230}

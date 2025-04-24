@@ -16,7 +16,7 @@ export default function CodePanel({ token }) {
     e.preventDefault();
     setLoading(true); setError(''); setOutput('');
     try {
-      const res = await fetch('http://localhost:8000/assist', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/assist`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

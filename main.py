@@ -186,7 +186,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://personal-ai-agent-beta.vercel.app"
+        "https://personal-ai-agent-beta.vercel.app",
+        "https://aiagentbysai.vercel.app"
     ],  # Allow local dev and deployed frontend
     allow_credentials=True,
     allow_methods=["*"],

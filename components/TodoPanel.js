@@ -11,7 +11,7 @@ export default function TodoPanel({ token }) {
   const fetchTodos = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/todos', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/todos`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error(await res.text());
@@ -30,7 +30,7 @@ export default function TodoPanel({ token }) {
     e.preventDefault();
     setLoading(true); setError('');
     try {
-      const res = await fetch('http://localhost:8000/assist', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/assist`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export default function TodoPanel({ token }) {
       for (const idx of selected) {
         const todo = todos[idx];
         if (!todo || todo.status === 'completed') continue;
-        await fetch(`http://localhost:8000/todos/complete/${todo.id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/todos/complete/${todo.id}`, {
           method: 'POST',
           headers: { Authorization: `Bearer ${token}` },
         });
