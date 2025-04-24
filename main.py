@@ -352,17 +352,23 @@ async def process_request(
     """
     try:
         if message.type == "chat":
-            response = await chat_service.chat(message.content, current_user.username)
+            # Build ChatRequest object from message
+            chat_request = ChatRequest(
+                message=message.content,
+                conversation_history=message.parameters.get("conversation_history", []) if message.parameters else [],
+                temperature=message.parameters.get("temperature", 0.7) if message.parameters else 0.7
+            )
+            response = await chat_service.process(chat_request)
         elif message.type == "summarize":
-            response = await summarize_service.summarize(message)
+            response = await summarize_service.process(message.content, message.parameters)
         elif message.type == "email":
-            response = await email_service.generate(message)
+            response = await email_service.process(message.content, message.parameters)
         elif message.type == "todo":
-            response = await todo_service.handle(message, current_user.username)
+            response = await todo_service.process(current_user.username, message.content, message.parameters)
         elif message.type == "translate":
-            response = await translator_service.translate(message)
+            response = await translator_service.process(message.content, message.parameters)
         elif message.type == "code":
-            response = await code_service.help(message)
+            response = await code_service.process(message.content, message.parameters)
         else:
             logger.warning(f"Invalid request type received: {message.type}")
             raise HTTPException(status_code=400, detail=f"Invalid request type: {message.type}")
