@@ -118,7 +118,7 @@ const Home: React.FC = () => {
       <Header user={user} onLogout={handleLogout} />
       <div className="flex flex-1 w-full">
         <Sidebar active={view} onNavigate={(key: string) => setView(key as ViewType)} />
-        <main className="flex-1 p-2 sm:p-6">
+        <main className="flex-1 flex flex-col overflow-hidden p-2 sm:p-6">
           {!isLoggedIn ? (
             <section className="max-w-md mx-auto mt-12 p-6 bg-white dark:bg-gray-800 rounded shadow">
               <h2 className="text-2xl font-bold mb-4">Sign In</h2>

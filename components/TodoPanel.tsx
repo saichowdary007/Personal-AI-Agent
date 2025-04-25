@@ -79,7 +79,9 @@ const TodoPanel: React.FC<TodoPanelProps> = ({ token }) => {
   };
 
   return (
-    <section className="max-w-xl mx-auto p-4 bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col gap-4">
+    <>
+      <div className="bg-red-500 text-white p-4 mb-4 rounded">Tailwind is working!</div>
+      <section className="max-w-xl mx-auto p-4 bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col gap-4">
       <h2 className="text-lg font-bold mb-2">Todo List</h2>
       <form onSubmit={handleAdd} className="flex gap-2 mb-2">
         <input
@@ -134,6 +136,7 @@ const TodoPanel: React.FC<TodoPanelProps> = ({ token }) => {
       {loading && <div className="text-gray-500">Loading...</div>}
       {error && <div className="text-red-600 bg-red-50 dark:bg-red-900 rounded p-2">{error}</div>}
     </section>
+    </>
   );
 };
 
