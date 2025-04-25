@@ -37,7 +37,14 @@
   }
 }
 
+.headerMargin {
+  margin-top: 80px;
+}
+
 @media (max-width: 600px) {
+  .headerMargin {
+    margin-top: 0;
+  }
   .appContainer {
     flex-direction: column;
     width: 100vw;
