@@ -11,6 +11,21 @@
   font-size: 1rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
+
+@media (max-width: 600px) {
+  .userBubble, .aiBubble {
+    max-width: 98vw;
+    padding: 7px 8px;
+    font-size: 0.96rem;
+    border-radius: 12px 12px 6px 12px;
+    word-break: break-word;
+  }
+  .from {
+    font-size: 0.97em;
+    margin-right: 6px;
+  }
+}
+
 .aiBubble {
   animation: fadeIn 0.35s ease;
 

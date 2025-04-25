@@ -6,6 +6,35 @@
   border-radius: 14px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.03);
 }
+
+@media (max-width: 600px) {
+  .chatPanel {
+    border-radius: 0;
+    height: 100vh;
+    min-height: 100vh;
+  }
+  .history {
+    padding: 10px 4px 0 4px;
+    min-height: 200px;
+    font-size: 0.98rem;
+  }
+  .inputRow {
+    gap: 4px;
+    padding-bottom: 4px;
+    border-radius: 0 0 0 0;
+  }
+  .input {
+    padding: 10px;
+    font-size: 1rem;
+  }
+  .sendBtn {
+    padding: 10px 8px;
+    font-size: 1rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
 .history {
   flex: 1;
   overflow-y: auto;
