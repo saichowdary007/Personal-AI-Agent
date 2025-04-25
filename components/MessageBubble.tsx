@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-export default function MessageBubble({ from, children }) {
+interface MessageBubbleProps {
+  from: string;
+  children: ReactNode;
+}
+
+const MessageBubble: React.FC<MessageBubbleProps> = ({ from, children }) => {
   const isUser = from === 'You';
   return (
     <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'} w-full`}>
@@ -16,4 +21,6 @@ export default function MessageBubble({ from, children }) {
       </div>
     </div>
   );
-}
+};
+
+export default MessageBubble;

@@ -17,11 +17,11 @@
     "swr": "^2.2.4"
   },
   "devDependencies": {
-    "@types/node": "20.11.28",
-    "@types/react": "18.2.45",
+    "@types/node": "^20.11.28",
+    "@types/react": "^18.2.45",
     "@types/react-dom": "18.2.18",
-    "typescript": "5.3.3",
     "eslint": "8.57.0",
-    "eslint-config-next": "13.4.19"
+    "eslint-config-next": "13.4.19",
+    "typescript": "^5.3.3"
   }
 }

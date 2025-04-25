@@ -2,9 +2,23 @@ import React, { useRef, useEffect } from 'react';
 import MessageBubble from './MessageBubble';
 import ReactMarkdown from 'react-markdown';
 
-export default function ChatPanel({ messages, content, setContent, onSend, loading, typing }) {
-  console.log("Current messages:", messages);
-  const bottomRef = useRef(null);
+interface Message {
+  from: string;
+  content?: string;
+  text?: string;
+}
+
+interface ChatPanelProps {
+  messages: Message[];
+  content: string;
+  setContent: (c: string) => void;
+  onSend: (e: React.FormEvent<HTMLFormElement>) => void;
+  loading: boolean;
+  typing: boolean;
+}
+
+const ChatPanel: React.FC<ChatPanelProps> = ({ messages, content, setContent, onSend, loading, typing }) => {
+  const bottomRef = useRef<HTMLDivElement>(null);
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
 
   return (
@@ -49,4 +63,6 @@ export default function ChatPanel({ messages, content, setContent, onSend, loadi
       </form>
     </section>
   );
-}
+};
+
+export default ChatPanel;
