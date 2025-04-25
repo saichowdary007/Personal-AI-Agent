@@ -144,32 +144,30 @@ export default function Home() {
   }
 
   return (
-    <>
-      <Header user={user} onLogout={handleLogout} />
-      <div className={styles.headerMargin}>
-        <div className={styles.appContainer}>
-          <Sidebar active={view} onNavigate={setView} />
-          <main className={styles.mainContent}>
-            <ErrorBoundary>
-              {view === 'chat' && (
-                <ChatPanel
-                  messages={messages}
-                  content={content}
-                  setContent={setContent}
-                  onSend={handleSend}
-                  loading={loading}
-                  typing={loading}
-                />
-              )}
-              {view === 'summarize' && <SummarizePanel token={token} />}
-              {view === 'email' && <EmailPanel token={token} />}
-              {view === 'todo' && <TodoPanel token={token} />}
-              {view === 'translate' && <TranslatePanel token={token} />}
-              {view === 'code' && <CodePanel token={token} />}
-            </ErrorBoundary>
-          </main>
-        </div>
-      </div>
-    </>
-  );
+  <>
+    <Header user={user} onLogout={handleLogout} />
+    <div className={styles.layoutRoot}>
+      <Sidebar active={view} onNavigate={setView} />
+      <main className={styles.layoutMain}>
+        <ErrorBoundary>
+          {view === 'chat' && (
+            <ChatPanel
+              messages={messages}
+              content={content}
+              setContent={setContent}
+              onSend={handleSend}
+              loading={loading}
+              typing={loading}
+            />
+          )}
+          {view === 'summarize' && <SummarizePanel token={token} />}
+          {view === 'email' && <EmailPanel token={token} />}
+          {view === 'todo' && <TodoPanel token={token} />}
+          {view === 'translate' && <TranslatePanel token={token} />}
+          {view === 'code' && <CodePanel token={token} />}
+        </ErrorBoundary>
+      </main>
+    </div>
+  </>
+);
 }

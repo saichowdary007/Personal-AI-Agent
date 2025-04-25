@@ -13,7 +13,7 @@ const NAV_ITEMS = [
 
 export default function Sidebar({ active, onNavigate }) {
   return (
-    <nav className={styles.sidebar}>
+    <nav className={styles.sidebar + ' ' + styles.layoutSidebar}>
       
       <ul className={styles.navList}>
         {NAV_ITEMS.map(item => (
