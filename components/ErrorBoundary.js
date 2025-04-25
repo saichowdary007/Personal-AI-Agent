@@ -18,9 +18,9 @@ export default class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ color: 'red', padding: 16, background: '#fff0f0', border: '1px solid #f88' }}>
-          <h3>Something went wrong.</h3>
-          <pre>{this.state.error && this.state.error.toString()}</pre>
+        <div className="text-red-700 bg-red-100 dark:bg-red-900 border border-red-400 rounded p-4 my-4">
+          <h3 className="font-bold text-lg mb-2">Something went wrong.</h3>
+          <pre className="whitespace-pre-wrap break-all">{this.state.error && this.state.error.toString()}</pre>
         </div>
       );
     }

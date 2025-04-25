@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import styles from '../styles/SummarizePanel.module.css';
 
 export default function SummarizePanel({ token }) {
   const [input, setInput] = useState('');
@@ -33,35 +32,44 @@ export default function SummarizePanel({ token }) {
   };
 
   return (
-    <section className={styles.panel}>
-      <h2>Summarize Text</h2>
-      <form onSubmit={handleSummarize} className={styles.form}>
+    <section className="max-w-xl mx-auto p-4 bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col gap-4">
+      <h2 className="text-lg font-bold mb-2">Summarize Text</h2>
+      <form onSubmit={handleSummarize} className="flex flex-col gap-2">
         <textarea
-          className={styles.input}
+          className="rounded border border-gray-300 dark:border-gray-700 p-2 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Paste text to summarize..."
           value={input}
           onChange={e => setInput(e.target.value)}
           rows={4}
         />
-        <div className={styles.formatRow}>
-          <label htmlFor="summary-format">Format:</label>
-          <select id="summary-format" value={format} onChange={e => setFormat(e.target.value)}>
+        <div className="flex flex-wrap items-center gap-4">
+          <label htmlFor="summary-format" className="text-sm">Format:</label>
+          <select
+            id="summary-format"
+            value={format}
+            onChange={e => setFormat(e.target.value)}
+            className="rounded border border-gray-300 dark:border-gray-700 p-1 bg-gray-50 dark:bg-gray-800"
+          >
             <option value="paragraph">Paragraph</option>
             <option value="bullets">Bullets</option>
             <option value="outline">Outline</option>
           </select>
         </div>
-        <button type="submit" className={styles.btn} disabled={loading || !isInputValid}>
+        <button
+          type="submit"
+          className="px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition disabled:opacity-50"
+          disabled={loading || !isInputValid}
+        >
           {loading ? 'Summarizing...' : 'Summarize'}
         </button>
       </form>
       {summary && (
-        <div className={styles.result}>
+        <div className="bg-gray-100 dark:bg-gray-800 rounded p-3 mt-2">
           <strong>Summary:</strong>
-          <ReactMarkdown>{summary}</ReactMarkdown>
+          <ReactMarkdown className="prose prose-sm dark:prose-invert">{summary}</ReactMarkdown>
         </div>
       )}
-      {error && <div className={styles.error}>{error}</div>}
+      {error && <div className="text-red-600 bg-red-50 dark:bg-red-900 rounded p-2">{error}</div>}
     </section>
   );
 }
