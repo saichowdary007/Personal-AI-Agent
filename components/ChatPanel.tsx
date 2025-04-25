@@ -27,7 +27,9 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ messages, content, setContent, on
       <div className="flex-1 overflow-y-auto px-2 py-4 sm:px-4">
         {messages.map((msg, idx) => (
           <MessageBubble key={idx} from={msg.from}>
-            <ReactMarkdown className="prose prose-sm sm:prose-base dark:prose-invert">{msg.content || msg.text}</ReactMarkdown>
+            <div className="prose prose-sm sm:prose-base dark:prose-invert">
+              <ReactMarkdown>{msg.content || msg.text}</ReactMarkdown>
+            </div>
           </MessageBubble>
         ))}
         {typing && (
