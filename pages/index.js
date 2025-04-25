@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import styles from '../styles/AppLayout.module.css';
 import ChatPanel from '../components/ChatPanel';
 import SummarizePanel from '../components/SummarizePanel';
 import EmailPanel from '../components/EmailPanel';
@@ -109,69 +110,64 @@ export default function Home() {
 
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
-        <form
-          onSubmit={handleLogin}
-          className="max-w-xs w-full p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-col gap-4"
-        >
-          <h2 className="text-xl font-bold mb-2 text-center">Login</h2>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            autoFocus
-            className="rounded border border-gray-300 dark:border-gray-700 px-3 py-2 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="rounded border border-gray-300 dark:border-gray-700 px-3 py-2 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition disabled:opacity-50"
-          >
-            {loading ? 'Logging in...' : 'Login'}
-          </button>
-          {error && (
-            <div className="text-red-600 bg-red-50 dark:bg-red-900 rounded p-2 text-center">
-              {error}
-            </div>
-          )}
-        </form>
+      <div className="app-container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f0f0f5' }}>
+        <main style={{ background: '#fff', padding: 36, borderRadius: 12, boxShadow: '0 2px 16px rgba(0,0,0,0.08)', minWidth: 340 }}>
+          <h1 style={{ marginBottom: 24, textAlign: 'center', color: '#22223b' }}>Sign in to Personal AI Assistant</h1>
+          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              style={{ padding: 12, borderRadius: 7, border: '1px solid #c9ada7', fontSize: '1rem' }}
+              autoFocus
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={{ padding: 12, borderRadius: 7, border: '1px solid #c9ada7', fontSize: '1rem' }}
+            />
+            <button
+              type="submit"
+              style={{ background: '#4a4e69', color: '#fff', border: 'none', padding: '12px', borderRadius: 7, fontWeight: 500, fontSize: '1rem', cursor: loading ? 'not-allowed' : 'pointer' }}
+              disabled={loading}
+            >
+              {loading ? 'Signing in...' : 'Sign In'}
+            </button>
+            {error && <div style={{ color: '#c0392b', marginTop: 8 }}>{error}</div>}
+          </form>
+        </main>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Header user={user} onLogout={handleLogout} />
-      <div className="flex flex-1 min-h-0">
-        <Sidebar active={view} onNavigate={setView} />
-        <main className="flex-1 min-w-0 p-2 sm:p-6 overflow-auto">
-          <ErrorBoundary>
-            {view === 'chat' && (
-              <ChatPanel
-                messages={messages}
-                content={content}
-                setContent={setContent}
-                onSend={handleSend}
-                loading={loading}
-                typing={loading}
-              />
-            )}
-            {view === 'summarize' && <SummarizePanel token={token} />}
-            {view === 'email' && <EmailPanel token={token} />}
-            {view === 'todo' && <TodoPanel token={token} />}
-            {view === 'translate' && <TranslatePanel token={token} />}
-            {view === 'code' && <CodePanel token={token} />}
-          </ErrorBoundary>
-        </main>
-      </div>
+  <>
+    <Header user={user} onLogout={handleLogout} />
+    <div className={styles.layoutRoot}>
+      <Sidebar active={view} onNavigate={setView} />
+      <main className={styles.layoutMain}>
+        <ErrorBoundary>
+          {view === 'chat' && (
+            <ChatPanel
+              messages={messages}
+              content={content}
+              setContent={setContent}
+              onSend={handleSend}
+              loading={loading}
+              typing={loading}
+            />
+          )}
+          {view === 'summarize' && <SummarizePanel token={token} />}
+          {view === 'email' && <EmailPanel token={token} />}
+          {view === 'todo' && <TodoPanel token={token} />}
+          {view === 'translate' && <TranslatePanel token={token} />}
+          {view === 'code' && <CodePanel token={token} />}
+        </ErrorBoundary>
+      </main>
     </div>
-  );
+  </>
+);
 }

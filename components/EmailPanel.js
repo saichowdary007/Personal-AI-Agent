@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import styles from '../styles/EmailPanel.module.css';
 
 export default function EmailPanel({ token }) {
   const [prompt, setPrompt] = useState('');
@@ -33,57 +34,43 @@ export default function EmailPanel({ token }) {
   };
 
   return (
-    <section className="max-w-xl mx-auto p-4 bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col gap-4">
-      <h2 className="text-lg font-bold mb-2">Email Drafting</h2>
-      <form onSubmit={handleDraft} className="flex flex-col gap-2">
+    <section className={styles.panel}>
+      <h2>Email Drafting</h2>
+      <form onSubmit={handleDraft} className={styles.form}>
         <textarea
-          className="rounded border border-gray-300 dark:border-gray-700 p-2 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className={styles.input}
           placeholder="Describe the email you want to draft..."
           value={prompt}
           onChange={e => setPrompt(e.target.value)}
           rows={3}
         />
-        <div className="flex flex-wrap items-center gap-4">
-          <label htmlFor="email-tone" className="text-sm">Tone:</label>
-          <select
-            id="email-tone"
-            value={tone}
-            onChange={e => setTone(e.target.value)}
-            className="rounded border border-gray-300 dark:border-gray-700 p-1 bg-gray-50 dark:bg-gray-800"
-          >
+        <div className={styles.formatRow}>
+          <label htmlFor="email-tone">Tone:</label>
+          <select id="email-tone" value={tone} onChange={e => setTone(e.target.value)}>
             <option value="professional">Professional</option>
             <option value="friendly">Friendly</option>
             <option value="apologetic">Apologetic</option>
             <option value="concise">Concise</option>
             <option value="informal">Informal</option>
           </select>
-          <label htmlFor="email-format" className="text-sm ml-2">Format:</label>
-          <select
-            id="email-format"
-            value={format}
-            onChange={e => setFormat(e.target.value)}
-            className="rounded border border-gray-300 dark:border-gray-700 p-1 bg-gray-50 dark:bg-gray-800"
-          >
+          <label htmlFor="email-format" style={{marginLeft:12}}>Format:</label>
+          <select id="email-format" value={format} onChange={e => setFormat(e.target.value)}>
             <option value="full">Full Email</option>
             <option value="reply">Reply</option>
             <option value="forward">Forward</option>
           </select>
         </div>
-        <button
-          type="submit"
-          className="px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition disabled:opacity-50"
-          disabled={loading || !isInputValid}
-        >
+        <button type="submit" className={styles.btn} disabled={loading || !isInputValid}>
           {loading ? 'Drafting...' : 'Draft Email'}
         </button>
       </form>
       {draft && (
-        <div className="bg-gray-100 dark:bg-gray-800 rounded p-3 mt-2">
+        <div className={styles.result}>
           <strong>Email Draft:</strong>
-          <ReactMarkdown className="prose prose-sm dark:prose-invert">{draft}</ReactMarkdown>
+          <ReactMarkdown>{draft}</ReactMarkdown>
         </div>
       )}
-      {error && <div className="text-red-600 bg-red-50 dark:bg-red-900 rounded p-2">{error}</div>}
+      {error && <div className={styles.error}>{error}</div>}
     </section>
   );
 }

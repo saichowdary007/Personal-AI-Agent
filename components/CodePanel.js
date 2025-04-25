@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import styles from '../styles/CodePanel.module.css';
 
 export default function CodePanel({ token }) {
   const [input, setInput] = useState('');
@@ -33,37 +34,27 @@ export default function CodePanel({ token }) {
   };
 
   return (
-    <section className="max-w-xl mx-auto p-4 bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col gap-4">
-      <h2 className="text-lg font-bold mb-2">AI Code Assistant</h2>
-      <form onSubmit={handleCode} className="flex flex-col gap-2">
+    <section className={styles.panel}>
+      <h2>Code Assistant</h2>
+      <form onSubmit={handleCode} className={styles.form}>
         <textarea
-          className="rounded border border-gray-300 dark:border-gray-700 p-2 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Paste code or describe what you want..."
+          className={styles.input}
+          placeholder="Paste code or describe your coding problem..."
           value={input}
           onChange={e => setInput(e.target.value)}
-          rows={3}
+          rows={4}
         />
-        <div className="flex flex-wrap items-center gap-4">
-          <label htmlFor="code-action" className="text-sm">Action:</label>
-          <select
-            id="code-action"
-            value={action}
-            onChange={e => setAction(e.target.value)}
-            className="rounded border border-gray-300 dark:border-gray-700 p-1 bg-gray-50 dark:bg-gray-800"
-          >
+        <div className={styles.formatRow}>
+          <label htmlFor="code-action">Action:</label>
+          <select id="code-action" value={action} onChange={e => setAction(e.target.value)}>
             <option value="explain">Explain</option>
             <option value="debug">Debug</option>
             <option value="improve">Improve</option>
             <option value="document">Document</option>
             <option value="convert">Convert Language</option>
           </select>
-          <label htmlFor="code-language" className="text-sm ml-2">Language:</label>
-          <select
-            id="code-language"
-            value={language}
-            onChange={e => setLanguage(e.target.value)}
-            className="rounded border border-gray-300 dark:border-gray-700 p-1 bg-gray-50 dark:bg-gray-800"
-          >
+          <label htmlFor="code-lang" style={{marginLeft:12}}>Language:</label>
+          <select id="code-lang" value={language} onChange={e => setLanguage(e.target.value)}>
             <option value="python">Python</option>
             <option value="javascript">JavaScript</option>
             <option value="typescript">TypeScript</option>
@@ -74,21 +65,17 @@ export default function CodePanel({ token }) {
             <option value="other">Other</option>
           </select>
         </div>
-        <button
-          type="submit"
-          className="px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition disabled:opacity-50"
-          disabled={loading || !isInputValid}
-        >
+        <button type="submit" className={styles.btn} disabled={loading || !isInputValid}>
           {loading ? 'Processing...' : 'Ask AI'}
         </button>
       </form>
       {output && (
-        <div className="bg-gray-100 dark:bg-gray-800 rounded p-3 mt-2">
+        <div className={styles.result}>
           <strong>AI Response:</strong>
-          <ReactMarkdown className="prose prose-sm dark:prose-invert">{output}</ReactMarkdown>
+          <ReactMarkdown>{output}</ReactMarkdown>
         </div>
       )}
-      {error && <div className="text-red-600 bg-red-50 dark:bg-red-900 rounded p-2">{error}</div>}
+      {error && <div className={styles.error}>{error}</div>}
     </section>
   );
 }

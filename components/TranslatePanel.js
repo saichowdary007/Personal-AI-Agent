@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import styles from '../styles/TranslatePanel.module.css';
 
 const LANGUAGES = [
   'English', 'French', 'Spanish', 'German', 'Italian', 'Chinese', 'Japanese', 'Korean', 'Hindi', 'Arabic'
@@ -48,42 +49,34 @@ export default function TranslatePanel({ token }) {
 
 
   return (
-    <section className="max-w-xl mx-auto p-4 bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col gap-4">
-      <h2 className="text-lg font-bold mb-2">Translate Text</h2>
-      <form onSubmit={handleTranslate} className="flex flex-col gap-2">
+    <section className={styles.panel}>
+      <h2>Translate Text</h2>
+      <form onSubmit={handleTranslate} className={styles.form}>
         <textarea
-          className="rounded border border-gray-300 dark:border-gray-700 p-2 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className={styles.input}
           placeholder="Enter text to translate..."
           value={input}
           onChange={e => setInput(e.target.value)}
           rows={3}
         />
-        <div className="flex flex-wrap items-center gap-4">
-          <label htmlFor="target-language" className="text-sm">Target Language:</label>
-          <select
-            id="target-language"
-            value={target}
-            onChange={e => setTarget(e.target.value)}
-            className="rounded border border-gray-300 dark:border-gray-700 p-1 bg-gray-50 dark:bg-gray-800"
-          >
-            {LANGUAGES.map(lang => <option key={lang} value={lang}>{lang}</option>)}
-          </select>
-        </div>
-        <button
-          type="submit"
-          className="px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition disabled:opacity-50"
-          disabled={loading || !isInputValid}
+        <select
+          className={styles.select}
+          value={target}
+          onChange={e => setTarget(e.target.value)}
         >
+          {LANGUAGES.map(lang => <option key={lang} value={lang}>{lang}</option>)}
+        </select>
+        <button type="submit" className={styles.btn} disabled={loading || !isInputValid}>
           {loading ? 'Translating...' : 'Translate'}
         </button>
       </form>
       {result && (
-        <div className="bg-gray-100 dark:bg-gray-800 rounded p-3 mt-2">
+        <div className={styles.result}>
           <strong>Translation:</strong>
-          <ReactMarkdown className="prose prose-sm dark:prose-invert">{result}</ReactMarkdown>
+          <ReactMarkdown>{result}</ReactMarkdown>
         </div>
       )}
-      {error && <div className="text-red-600 bg-red-50 dark:bg-red-900 rounded p-2">{error}</div>}
+      {error && <div className={styles.error}>{error}</div>}
     </section>
   );
 }
