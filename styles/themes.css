@@ -1,0 +1,15 @@
+/* Theme variables for light/dark mode */
+:root {
+  --background: #ffffff;
+  --foreground: #18181b;
+}
+[data-theme="dark"] {
+  --background: #18181b;
+  --foreground: #f4f4f5;
+}
+.bg-background {
+  background-color: var(--background);
+}
+.text-foreground {
+  color: var(--foreground);
+}

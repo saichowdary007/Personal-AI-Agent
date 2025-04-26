@@ -1,40 +1,62 @@
-import React from 'react';
-import { FaComments, FaFileAlt, FaEnvelope, FaTasks, FaLanguage, FaCode } from 'react-icons/fa';
-
-interface SidebarProps {
-  active: string;
-  onNavigate: (key: string) => void;
-}
+"use client";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const NAV_ITEMS = [
-  { key: 'chat', label: 'Chat', icon: <FaComments /> },
-  { key: 'summarize', label: 'Summarize', icon: <FaFileAlt /> },
-  { key: 'email', label: 'Email', icon: <FaEnvelope /> },
-  { key: 'todo', label: 'Todo', icon: <FaTasks /> },
-  { key: 'translate', label: 'Translate', icon: <FaLanguage /> },
-  { key: 'code', label: 'Code', icon: <FaCode /> },
+  { href: '/chat', label: 'Chat', icon: '💬' },
+  { href: '/history', label: 'History', icon: '🕑' },
+  { href: '/code', label: 'Code Helper', icon: '💻' },
+  { href: '/translate', label: 'Translator', icon: '🌐' },
+  { href: '/settings', label: 'Settings', icon: '⚙️' },
 ];
 
-const Sidebar: React.FC<SidebarProps> = ({ active, onNavigate }) => (
-  <nav className="w-full sm:w-56 flex-shrink-0 bg-gray-100 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 min-h-screen">
-    <ul className="flex flex-row sm:flex-col gap-2 p-2 sm:p-4">
-      {NAV_ITEMS.map(item => (
-        <li key={item.key}>
-          <button
-            className={`flex items-center gap-2 px-3 py-2 rounded w-full text-left transition font-medium \
-              ${active === item.key
-                ? 'bg-blue-600 text-white'
-                : 'hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200'}`}
-            onClick={() => onNavigate(item.key)}
-            aria-label={item.label}
-          >
-            <span className="text-lg">{item.icon}</span>
-            <span>{item.label}</span>
-          </button>
-        </li>
-      ))}
-    </ul>
-  </nav>
-);
+const Sidebar: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  return (
+    <nav
+      aria-label="Sidebar navigation"
+      className={`fixed left-0 top-16 z-20 h-full w-64 border-r border-zinc-200 bg-white transition-transform duration-300 dark:border-zinc-800 dark:bg-zinc-900 md:sticky md:top-0 md:h-auto md:w-56 ${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
+    >
+      {/* Mobile toggle button */}
+      <button
+        className="absolute right-2 top-2 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 md:hidden"
+        aria-label={open ? 'Close sidebar' : 'Open sidebar'}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span aria-hidden>{open ? '✖️' : '☰'}</span>
+      </button>
+      <ul className="mt-16 flex flex-col gap-2 px-4 md:mt-8">
+        {NAV_ITEMS.map(({ href, label, icon }) => (
+          <li key={href}>
+            <Link
+              href={href}
+              className={`flex items-center gap-3 rounded-lg px-4 py-2 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                pathname === href
+                  ? 'bg-blue-100 text-blue-600 dark:bg-zinc-800 dark:text-blue-300'
+                  : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800'
+              }`}
+              aria-current={pathname === href ? 'page' : undefined}
+              tabIndex={0}
+            >
+              <span className="text-xl" aria-hidden>{icon}</span>
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
 
 export default Sidebar;
+
+/*
+Key Points:
+- Collapsible on mobile, sticky on desktop.
+- Nav items highlight active route.
+- Accessible: ARIA labels, focus ring, aria-current.
+- Responsive with smooth transitions.
+*/
