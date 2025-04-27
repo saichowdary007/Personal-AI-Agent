@@ -1,0 +1,110 @@
+import { useState } from 'react';
+import { toast } from 'react-hot-toast';
+
+interface SummarizeOptions {
+  format?: 'paragraph' | 'bullets' | 'outline';
+  maxLength?: number;
+}
+
+interface SummarizeResponse {
+  content: string;
+  metadata: {
+    source_type?: string;
+    original_length?: number;
+    summary_length?: number;
+    format?: string;
+    usage?: any;
+    [key: string]: any;
+  };
+}
+
+export function useSummarize() {
+  const [result, setResult] = useState<string | null>(null);
+  const [metadata, setMetadata] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const summarizeText = async (text: string, options: SummarizeOptions = {}) => {
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const response = await fetch('/api/summarize', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: text,
+          options
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const data: SummarizeResponse = await response.json();
+      setResult(data.content);
+      setMetadata(data.metadata);
+      return data;
+    } catch (err: any) {
+      const errorMessage = err.message || 'Failed to summarize text';
+      setError(errorMessage);
+      toast.error(errorMessage);
+      return null;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const summarizeFile = async (file: File, options: SummarizeOptions = {}) => {
+    setIsLoading(true);
+    setError(null);
+    
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    // Add options as JSON string
+    formData.append('options', JSON.stringify(options));
+    
+    try {
+      const response = await fetch('/api/summarize/file', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const data: SummarizeResponse = await response.json();
+      setResult(data.content);
+      setMetadata(data.metadata);
+      return data;
+    } catch (err: any) {
+      const errorMessage = err.message || 'Failed to summarize file';
+      setError(errorMessage);
+      toast.error(errorMessage);
+      return null;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const reset = () => {
+    setResult(null);
+    setMetadata(null);
+    setError(null);
+  };
+
+  return {
+    summarizeText,
+    summarizeFile,
+    result,
+    metadata,
+    isLoading,
+    error,
+    reset
+  };
+} 

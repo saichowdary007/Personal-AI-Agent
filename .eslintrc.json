@@ -3,20 +3,10 @@
   "plugins": ["tailwindcss"],
   "rules": {
     "tailwindcss/no-custom-classname": "off",
-    "at-rule-no-unknown": [
-      2,
-      {
-        "ignoreAtRules": [
-          "tailwind",
-          "apply",
-          "layer",
-          "config",
-          "variants",
-          "responsive",
-          "screen"
-        ]
-      }
-    ]
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/enforces-shorthand": "warn",
+    "tailwindcss/migration-from-tailwind-2": "warn",
+    "react/no-unescaped-entities": "off"
   },
   "settings": {
     "tailwindcss": {
