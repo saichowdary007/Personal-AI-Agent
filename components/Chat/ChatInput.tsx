@@ -4,7 +4,7 @@ import { useChat } from '@/hooks/useChat';
 
 const ChatInput: React.FC = () => {
   const [input, setInput] = useState('');
-  const { sendMessage, isSending } = useChat();
+  const { sendMessage, isLoading } = useChat();
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,16 +22,16 @@ const ChatInput: React.FC = () => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         aria-label="Message input"
-        disabled={isSending}
+        disabled={isLoading}
         required
       />
       <button
         type="submit"
         className="rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        disabled={isSending || !input.trim()}
-        aria-disabled={isSending || !input.trim()}
+        disabled={isLoading || !input.trim()}
+        aria-disabled={isLoading || !input.trim()}
       >
-        {isSending ? 'Sending...' : 'Send'}
+        {isLoading ? 'Sending...' : 'Send'}
       </button>
     </form>
   );

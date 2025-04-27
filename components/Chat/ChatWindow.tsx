@@ -3,16 +3,23 @@ import React from 'react';
 import LoadingSkeleton from '@/components/LoadingSkeleton';
 import ErrorState from '@/components/ErrorState';
 import { useChat } from '@/hooks/useChat';
+import { XCircle } from 'lucide-react';
 
 const ChatWindow: React.FC = () => {
-  const { messages, isLoading, error, retry } = useChat();
+  const { messages, isLoading, error } = useChat();
 
-  if (isLoading) {
+  if (isLoading && messages.length === 0) {
     return <LoadingSkeleton className="h-64 w-full" />;
   }
 
-  if (error) {
-    return <ErrorState message={error} onRetry={retry} />;
+  if (error && messages.length === 0) {
+    return (
+      <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-red-200 bg-red-50 p-4 text-center dark:border-red-800 dark:bg-red-900/20">
+        <XCircle className="mb-2 h-8 w-8 text-red-500" />
+        <h3 className="mb-1 text-lg font-semibold text-red-700 dark:text-red-400">Connection Error</h3>
+        <p className="text-sm text-red-600 dark:text-red-300">{error}</p>
+      </div>
+    );
   }
 
   return (

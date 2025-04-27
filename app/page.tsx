@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import Sidebar from '@/components/Sidebar';
-import ChatPanel from '@/components/ChatPanel';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import TodoList from '../components/Todo/TodoList';
 
 interface User {
   id: string;
@@ -50,14 +49,9 @@ const Home: React.FC = () => {
   }
 
   return (
-    <ErrorBoundary>
-      <div className="flex">
-        <Sidebar />
-        <main className="flex-1 p-4 md:p-8">
-          <ChatPanel />
-        </main>
-      </div>
-    </ErrorBoundary>
+    <div className="p-4 md:p-8">
+      <TodoList />
+    </div>
   );
 };
 

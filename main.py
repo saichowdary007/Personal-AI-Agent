@@ -8,6 +8,10 @@ Author: AI Assistant Team
 Version: 1.0.0
 """
 
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI, HTTPException, Depends, status, Body, File, UploadFile, Request, Response
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from fastapi.middleware.cors import CORSMiddleware
@@ -549,7 +553,7 @@ def log_gemini_key():
 log_gemini_key()
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
+    port = int(os.environ.get("PORT", 8001))
     host = os.environ.get("HOST", "0.0.0.0")
     
     logger.info(f"Starting LLM Assistant API on {host}:{port}")

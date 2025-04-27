@@ -1,47 +1,137 @@
-import { useState, useCallback } from 'react';
-import useSWR from 'swr';
+import { useState, useEffect, useCallback } from 'react';
+import { useApiClient } from './useApiClient';
 
-export interface ChatMessage {
-  id?: string;
-  role: 'user' | 'assistant';
+type MessageRole = 'system' | 'user' | 'assistant';
+
+export interface Message {
+  id: string;
+  role: MessageRole;
   content: string;
 }
 
-const fetcher = (url: string) => fetch(url, { credentials: 'include' }).then(res => res.json());
-
 export function useChat() {
-  const { data, error, mutate, isLoading } = useSWR<{ messages: ChatMessage[] }>('/api/chat', fetcher);
-  const [isSending, setIsSending] = useState(false);
-  const [sendError, setSendError] = useState<string | null>(null);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { fetchFromApi } = useApiClient();
+
+  // Load initial greeting
+  useEffect(() => {
+    if (messages.length === 0) {
+      setMessages([
+        {
+          id: '0',
+          role: 'assistant',
+          content: 'Hello! How can I help you today?',
+        },
+      ]);
+    }
+  }, [messages.length]);
 
   const sendMessage = useCallback(async (content: string) => {
-    setIsSending(true);
-    setSendError(null);
+    if (!content.trim()) return;
+
+    setIsLoading(true);
+    setError(null);
+
+    // Add user message immediately
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      role: 'user',
+      content,
+    };
+    setMessages((prev) => [...prev, userMessage]);
+
     try {
-      const res = await fetch('/api/chat', {
+      // Try to use our Next.js API endpoint first (handles token authentication)
+      // Get token from localStorage and add Authorization header
+      const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+      const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify({ content }),
       });
-      if (!res.ok) throw new Error('Failed to send message');
-      await mutate(); // Refresh chat
-    } catch (err: any) {
-      setSendError(err.message);
-    } finally {
-      setIsSending(false);
-    }
-  }, [mutate]);
 
-  const retry = () => mutate();
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      const data = await response.json();
+      
+      // Extract assistant message
+      if (data.messages && data.messages.length >= 2) {
+        const assistantResponse = data.messages[1];
+        const assistantMessage: Message = {
+          id: assistantResponse.id || Date.now().toString(),
+          role: 'assistant',
+          content: assistantResponse.content,
+        };
+        setMessages((prev) => [...prev, assistantMessage]);
+      } else {
+        throw new Error('Invalid response format');
+      }
+    } catch (err: any) {
+      console.error('Error in chat:', err);
+      setError(err.message || 'Failed to send message');
+      
+      // Fall back to our direct backend authenticated API client
+      try {
+        const result = await fetchFromApi('/assist', {
+          method: 'POST',
+          body: {
+            type: 'chat',
+            content,
+          },
+        });
+
+        if (result.error) {
+          throw new Error(result.error);
+        }
+
+        if (result.data) {
+          const assistantMessage: Message = {
+            id: Date.now().toString(),
+            role: 'assistant',
+            content: result.data.content || 'Sorry, I could not process your request.',
+          };
+          setMessages((prev) => [...prev, assistantMessage]);
+          setError(null);
+        }
+      } catch (backendErr: any) {
+        console.error('Backend fallback error:', backendErr);
+        // Add error message as assistant
+        const errorMessage: Message = {
+          id: Date.now().toString(),
+          role: 'assistant',
+          content: 'Sorry, I encountered an error. Please try again later.',
+        };
+        setMessages((prev) => [...prev, errorMessage]);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }, [fetchFromApi]);
+
+  const clearChat = useCallback(() => {
+    setMessages([
+      {
+        id: '0',
+        role: 'assistant',
+        content: 'Hello! How can I help you today?',
+      },
+    ]);
+    setError(null);
+  }, []);
 
   return {
-    messages: data?.messages || [],
+    messages,
     isLoading,
-    error: error ? (error.message || 'Failed to load chat') : sendError,
-    isSending,
+    error,
     sendMessage,
-    retry,
+    clearChat,
   };
 }
 
