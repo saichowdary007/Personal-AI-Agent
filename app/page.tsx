@@ -39,33 +39,33 @@ const Home: React.FC = () => {
   }, [router]);
 
   return (
-    <div className="p-4 md:p-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="p-3 sm:p-4 md:p-8">
+      <div className="w-full max-w-4xl mx-auto">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-8 text-white">
-            <h1 className="text-3xl font-bold">Welcome to Your AI Assistant</h1>
-            <p className="mt-2 opacity-90">Your personal AI-powered productivity companion</p>
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-5 sm:p-8 text-white">
+            <h1 className="text-2xl sm:text-3xl font-bold">Welcome to Your AI Assistant</h1>
+            <p className="mt-2 text-sm sm:text-base opacity-90">Your personal AI-powered productivity companion</p>
           </div>
           
-          <div className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-5 rounded-lg border border-blue-100">
-                <h2 className="text-xl font-semibold text-blue-800 mb-2">Chat with AI</h2>
-                <p className="text-gray-600 mb-4">Ask questions, get recommendations, brainstorm ideas</p>
+          <div className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6">
+              <div className="bg-blue-50 p-4 sm:p-5 rounded-lg border border-blue-100">
+                <h2 className="text-lg sm:text-xl font-semibold text-blue-800 mb-2">Chat with AI</h2>
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Ask questions, get recommendations, brainstorm ideas</p>
                 <button 
                   onClick={() => router.push('/chat')}
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                  className="w-full sm:w-auto bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors text-sm sm:text-base"
                 >
                   Start Chatting
                 </button>
               </div>
               
-              <div className="bg-purple-50 p-5 rounded-lg border border-purple-100">
-                <h2 className="text-xl font-semibold text-purple-800 mb-2">Translate Text</h2>
-                <p className="text-gray-600 mb-4">Translate content between different languages</p>
+              <div className="bg-purple-50 p-4 sm:p-5 rounded-lg border border-purple-100">
+                <h2 className="text-lg sm:text-xl font-semibold text-purple-800 mb-2">Translate Text</h2>
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Translate content between different languages</p>
                 <button 
                   onClick={() => router.push('/translate')}
-                  className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors"
+                  className="w-full sm:w-auto bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors text-sm sm:text-base"
                 >
                   Translate Now
                 </button>

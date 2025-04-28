@@ -45,23 +45,23 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 p-4 dark:bg-zinc-900">
-      <div className="w-full max-w-md rounded-lg border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
-        <div className="mb-6 text-center">
-          <h1 className="text-2xl font-bold">Login</h1>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+      <div className="w-full max-w-sm rounded-lg border border-zinc-200 bg-white p-5 sm:p-8 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
+        <div className="mb-5 sm:mb-6 text-center">
+          <h1 className="text-xl sm:text-2xl font-bold">Login</h1>
+          <p className="mt-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
             Sign in to access your AI Assistant
           </p>
         </div>
 
         {error && (
-          <div className="mb-4 rounded-md bg-red-50 p-3 text-sm text-red-700 dark:bg-red-900/20 dark:text-red-400">
+          <div className="mb-4 rounded-md bg-red-50 p-2 sm:p-3 text-xs sm:text-sm text-red-700 dark:bg-red-900/20 dark:text-red-400">
             {error}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           <div>
-            <label htmlFor="username" className="mb-1 block text-sm font-medium">
+            <label htmlFor="username" className="mb-1 block text-xs sm:text-sm font-medium">
               Username
             </label>
             <div className="relative">
@@ -73,15 +73,15 @@ const LoginPage: React.FC = () => {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full rounded-md border border-zinc-300 bg-white py-2 pl-10 pr-3 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white"
-                placeholder="admin"
+                className="w-full rounded-md border border-zinc-300 bg-white py-2 pl-10 pr-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white"
+                placeholder="testuser"
                 required
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="password" className="mb-1 block text-sm font-medium">
+            <label htmlFor="password" className="mb-1 block text-xs sm:text-sm font-medium">
               Password
             </label>
             <div className="relative">
@@ -93,7 +93,7 @@ const LoginPage: React.FC = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-md border border-zinc-300 bg-white py-2 pl-10 pr-3 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white"
+                className="w-full rounded-md border border-zinc-300 bg-white py-2 pl-10 pr-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white"
                 placeholder="testpass"
                 required
               />
@@ -102,14 +102,14 @@ const LoginPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full rounded-md bg-blue-600 py-2 font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-offset-zinc-800"
+            className="w-full rounded-md bg-blue-600 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-offset-zinc-800"
             disabled={isLoading}
           >
             {isLoading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
 
-        <div className="mt-6 text-center text-xs text-zinc-500 dark:text-zinc-400">
+        <div className="mt-5 sm:mt-6 text-center text-xxs sm:text-xs text-zinc-500 dark:text-zinc-400">
           <p>Use username: <b>testuser</b>, password: <b>testpass</b></p>
         </div>
       </div>

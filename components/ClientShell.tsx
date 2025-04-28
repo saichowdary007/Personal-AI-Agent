@@ -19,6 +19,15 @@ const ClientShell: React.FC<ClientShellProps> = ({ children }) => {
     } else {
       document.documentElement.classList.remove('dark');
     }
+
+    // Add meta viewport tag for better mobile experience
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (!viewport) {
+      const meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover';
+      document.head.appendChild(meta);
+    }
   }, []);
 
   return (
@@ -26,7 +35,7 @@ const ClientShell: React.FC<ClientShellProps> = ({ children }) => {
       <Header />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-4 md:p-8" tabIndex={-1} id="main-content">
+        <main className="flex-1 p-2 sm:p-4 md:p-8 overflow-auto" tabIndex={-1} id="main-content">
           <ErrorBoundary>
             {children}
           </ErrorBoundary>
