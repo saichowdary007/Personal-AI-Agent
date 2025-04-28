@@ -1,51 +1,26 @@
 "use client";
 import React, { useState } from 'react';
 import TodoItem from './TodoItem';
+import { useTodo } from '@/hooks/useTodo';
 import { Todo } from '@/types/Todo';
 
-interface TodoListProps {
-  initialTodos?: Todo[];
-}
-
-const TodoList: React.FC<TodoListProps> = ({ initialTodos = [] }) => {
-  const [todos, setTodos] = useState<Todo[]>(initialTodos);
+const TodoList: React.FC = () => {
+  const { todos, isLoading, error, addTodo, updateTodo, deleteTodo, toggleTodo } = useTodo();
   const [newTodoText, setNewTodoText] = useState('');
-
-  const addTodo = (text: string) => {
-    if (text.trim()) {
-      const newTodo: Todo = {
-        id: Date.now(),
-        text: text.trim(),
-        completed: false
-      };
-      setTodos([...todos, newTodo]);
-    }
-  };
-
-  const toggleTodo = (id: number) => {
-    setTodos(
-      todos.map(todo => 
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
-  const deleteTodo = (id: number) => {
-    setTodos(todos.filter(todo => todo.id !== id));
-  };
-
-  const updateTodo = (id: number, text: string) => {
-    setTodos(
-      todos.map(todo => 
-        todo.id === id ? { ...todo, text } : todo
-      )
-    );
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    addTodo(newTodoText);
-    setNewTodoText('');
+    if (newTodoText.trim()) {
+      addTodo(newTodoText);
+      setNewTodoText('');
+    }
+  };
+
+  const handleToggle = (id: number) => {
+    const todo = todos.find(t => t.id === id);
+    if (todo) {
+      toggleTodo(id, !todo.completed);
+    }
   };
 
   return (
@@ -69,14 +44,18 @@ const TodoList: React.FC<TodoListProps> = ({ initialTodos = [] }) => {
       </form>
       
       <div className="bg-white rounded-md shadow">
-        {todos.length === 0 ? (
+        {isLoading ? (
+          <div className="p-4 text-center text-gray-500">Loading todos...</div>
+        ) : error ? (
+          <div className="p-4 text-center text-red-500">Error: {error.message}</div>
+        ) : todos.length === 0 ? (
           <div className="p-4 text-center text-gray-500">No todos yet. Add one above!</div>
         ) : (
           todos.map(todo => (
             <TodoItem
               key={todo.id}
               todo={todo}
-              onToggle={toggleTodo}
+              onToggle={handleToggle}
               onDelete={deleteTodo}
               onUpdate={updateTodo}
             />
