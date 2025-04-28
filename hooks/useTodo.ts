@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import { toast } from 'react-hot-toast';
 
@@ -8,25 +8,61 @@ interface Todo {
   completed: boolean;
 }
 
-const fetcher = (url: string) => fetch(url).then(res => res.json());
-
 export function useTodo() {
-  const { data, error, mutate } = useSWR<Todo[]>('/api/todo', fetcher);
+  const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    // Get token from localStorage when component mounts
+    const storedToken = localStorage.getItem('token');
+    setToken(storedToken);
+  }, []);
+
+  // Create a fetcher function that includes the auth token
+  const fetcher = async (url: string) => {
+    if (!token) {
+      throw new Error('Authentication required');
+    }
+    
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    
+    if (!res.ok) {
+      const error = await res.json();
+      throw new Error(error.error || 'Failed to fetch todos');
+    }
+    
+    return res.json();
+  };
+
+  const { data, error, mutate } = useSWR<Todo[]>(
+    token ? '/api/todo' : null, 
+    fetcher
+  );
+
   const addTodo = async (task: string) => {
+    if (!token) {
+      toast.error('You must be logged in');
+      return;
+    }
+
     setIsLoading(true);
     try {
       const response = await fetch('/api/todo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ task }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to add todo');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to add todo');
       }
 
       await mutate();
@@ -39,18 +75,25 @@ export function useTodo() {
   };
 
   const updateTodo = async (id: number, task: string) => {
+    if (!token) {
+      toast.error('You must be logged in');
+      return;
+    }
+
     setIsLoading(true);
     try {
       const response = await fetch(`/api/todo/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ task }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to update todo');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to update todo');
       }
 
       await mutate();
@@ -63,14 +106,23 @@ export function useTodo() {
   };
 
   const deleteTodo = async (id: number) => {
+    if (!token) {
+      toast.error('You must be logged in');
+      return;
+    }
+
     setIsLoading(true);
     try {
       const response = await fetch(`/api/todo/${id}`, {
         method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
 
       if (!response.ok) {
-        throw new Error('Failed to delete todo');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to delete todo');
       }
 
       await mutate();
@@ -83,6 +135,11 @@ export function useTodo() {
   };
 
   const toggleTodo = async (id: number, completed: boolean) => {
+    if (!token) {
+      toast.error('You must be logged in');
+      return;
+    }
+
     // Optimistic UI update
     const prevData = data || [];
     const newData = prevData.map(todo => 
@@ -97,12 +154,14 @@ export function useTodo() {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ completed }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to toggle todo');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to toggle todo');
       }
 
       // Update with actual server data

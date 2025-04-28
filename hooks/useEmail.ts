@@ -23,14 +23,26 @@ export function useEmail() {
   const [error, setError] = useState<string | null>(null);
 
   const generateEmail = async (prompt: string, options: EmailOptions = {}) => {
+    if (!prompt.trim()) {
+      setError('Please enter email details');
+      return null;
+    }
+
     setIsLoading(true);
     setError(null);
     
     try {
+      // Get auth token from localStorage
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('You must be logged in to generate emails');
+      }
+
       const response = await fetch('/api/email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           prompt,
@@ -39,7 +51,8 @@ export function useEmail() {
       });
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Error: ${response.status}`);
       }
 
       const data: EmailResponse = await response.json();

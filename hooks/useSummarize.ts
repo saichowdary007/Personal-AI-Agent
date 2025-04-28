@@ -25,14 +25,26 @@ export function useSummarize() {
   const [error, setError] = useState<string | null>(null);
 
   const summarizeText = async (text: string, options: SummarizeOptions = {}) => {
+    if (!text.trim()) {
+      setError('Please enter text to summarize');
+      return null;
+    }
+
     setIsLoading(true);
     setError(null);
     
     try {
+      // Get auth token from localStorage
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('You must be logged in to summarize text');
+      }
+
       const response = await fetch('/api/summarize', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           content: text,
@@ -41,7 +53,8 @@ export function useSummarize() {
       });
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Error: ${response.status}`);
       }
 
       const data: SummarizeResponse = await response.json();
@@ -59,8 +72,22 @@ export function useSummarize() {
   };
 
   const summarizeFile = async (file: File, options: SummarizeOptions = {}) => {
+    if (!file) {
+      setError('Please select a file to summarize');
+      return null;
+    }
+
     setIsLoading(true);
     setError(null);
+    
+    // Get auth token from localStorage
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setError('You must be logged in to summarize files');
+      setIsLoading(false);
+      toast.error('You must be logged in to summarize files');
+      return null;
+    }
     
     const formData = new FormData();
     formData.append('file', file);
@@ -71,11 +98,15 @@ export function useSummarize() {
     try {
       const response = await fetch('/api/summarize/file', {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
         body: formData,
       });
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Error: ${response.status}`);
       }
 
       const data: SummarizeResponse = await response.json();
