@@ -1516,3 +1516,9 @@
 {"timestamp": "2025-04-28T05:37:16.816590", "level": "INFO", "message": "Request: POST /assist - Time: 0.0030s", "module": "main", "function": "__call__", "line": 157}
 {"timestamp": "2025-04-28T05:37:40.118977", "level": "INFO", "message": "Request: POST /assist - Time: 0.0012s", "module": "main", "function": "__call__", "line": 157}
 {"timestamp": "2025-04-28T05:38:07.466345", "level": "INFO", "message": "Request: POST /assist - Time: 0.0020s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T05:43:46.964427", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-28T05:43:46.964938", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-28T05:43:46.965686", "level": "INFO", "message": "Request: POST /assist - Time: 0.5213s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T05:43:58.757129", "level": "INFO", "message": "Summary generated via LLMClient.", "module": "summarize", "function": "process", "line": 86}
+{"timestamp": "2025-04-28T05:43:58.757494", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-28T05:43:58.758109", "level": "INFO", "message": "Request: POST /assist - Time: 0.9824s", "module": "main", "function": "__call__", "line": 157}

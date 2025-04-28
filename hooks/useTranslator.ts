@@ -24,14 +24,21 @@ export function useTranslator() {
     try {
       const response = await fetchFromApi('/assist', {
         method: 'POST',
-        body: { input, sourceLang, targetLang, mode: 'translate' }
+        body: { 
+          type: 'translate',
+          content: input,
+          parameters: {
+            source_language: sourceLang,
+            target_language: targetLang
+          }
+        }
       });
       
       if (response.error) {
         throw new Error(response.error);
       }
       
-      setOutput(response.data.output);
+      setOutput(response.data.content);
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);
@@ -60,6 +67,6 @@ export function useTranslator() {
 /*
 Key Points:
 - Handles text input, source/target language, translation API call, and output.
-- Posts to /api/translate.
+- Uses the unified /assist endpoint with proper request structure.
 - Type-safe and stateful.
 */
