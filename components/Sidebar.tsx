@@ -50,7 +50,7 @@ const Sidebar: React.FC = () => {
       {/* Mobile overlay */}
       {open && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden" 
+          className="fixed inset-0 bg-black/50 z-10 md:hidden" 
           aria-hidden="true"
         />
       )}
@@ -61,7 +61,7 @@ const Sidebar: React.FC = () => {
         aria-label={open ? 'Close sidebar' : 'Open sidebar'}
         onClick={() => setOpen((v) => !v)}
       >
-        <span aria-hidden className="block w-5 h-5 flex items-center justify-center">
+        <span aria-hidden className="flex items-center justify-center w-5 h-5">
           {open ? '✖️' : '☰'}
         </span>
       </button>

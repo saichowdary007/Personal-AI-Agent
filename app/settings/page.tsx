@@ -52,7 +52,7 @@ const SettingsPage: React.FC = () => {
           
           <button
             onClick={toggleDarkMode}
-            className="inline-flex h-10 w-16 items-center rounded-full bg-zinc-200 p-1 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-700"
+            className="size-8 text-white p-1 rounded-full transition-transform duration-150 ease-in-out"
             aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
             <div 

@@ -52,7 +52,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, onUpdate 
         type="checkbox"
         checked={todo.completed}
         onChange={handleToggle}
-        className="mr-2 h-5 w-5 text-blue-500"
+        className="mr-2 size-5 text-blue-500"
       />
       
       {isEditing ? (

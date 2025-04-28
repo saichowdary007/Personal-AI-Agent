@@ -15,7 +15,7 @@ const ChatWindow: React.FC = () => {
   if (error && messages.length === 0) {
     return (
       <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-red-200 bg-red-50 p-4 text-center dark:border-red-800 dark:bg-red-900/20">
-        <XCircle className="mb-2 h-8 w-8 text-red-500" />
+        <XCircle className="mb-2 size-8 text-red-500" />
         <h3 className="mb-1 text-lg font-semibold text-red-700 dark:text-red-400">Connection Error</h3>
         <p className="text-sm text-red-600 dark:text-red-300">{error}</p>
       </div>

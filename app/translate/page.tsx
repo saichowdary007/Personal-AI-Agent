@@ -134,7 +134,7 @@ const TranslatorPage: React.FC = () => {
               <textarea
                 value={output || ''}
                 readOnly
-                className="h-full w-full rounded-md border border-zinc-300 bg-zinc-50 p-3 focus:outline-none dark:border-zinc-600 dark:bg-zinc-900 dark:text-white"
+                className="size-full rounded-md border border-zinc-300 bg-zinc-50 p-3 focus:outline-none dark:border-zinc-600 dark:bg-zinc-900 dark:text-white"
                 placeholder="Translation will appear here"
               />
               {isTranslating && (
