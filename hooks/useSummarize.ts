@@ -25,14 +25,17 @@ export function useSummarize() {
     
     try {
       const response = await apiClient.post('/assist', {
-        text,
-        max_length: options.maxLength || 500,
-        format: options.format || 'paragraph'
+        type: 'summarize',
+        content: text,
+        parameters: {
+          max_length: options.maxLength || 500,
+          format: options.format || 'paragraph'
+        }
       });
       
-      if (response.summary) {
-        setSummary(response.summary);
-        return response.summary;
+      if (response.content) {
+        setSummary(response.content);
+        return response.content;
       } else {
         throw new Error('No summary returned from API');
       }
@@ -74,16 +77,17 @@ export function useSummarize() {
     setError(null);
 
     try {
+      // For file uploads, we need to use the dedicated file upload endpoint
+      // and then reference the file in the assist request
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('max_length', options.maxLength?.toString() || '500');
-      formData.append('format', options.format || 'paragraph');
-
-      const response = await apiClient.postFormData('/api/assist', formData);
       
-      if (response.summary) {
-        setSummary(response.summary);
-        return response.summary;
+      // First upload the file
+      const uploadResponse = await apiClient.postFormData('/api/summarize/file', formData);
+      
+      if (uploadResponse && uploadResponse.content) {
+        setSummary(uploadResponse.content);
+        return uploadResponse.content;
       } else {
         throw new Error('No summary returned from API');
       }
