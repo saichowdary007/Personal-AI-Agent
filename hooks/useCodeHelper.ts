@@ -23,10 +23,10 @@ export function useCodeHelper() {
     setOutput(null);
     
     try {
-      const response = await fetchFromApi('/api/code', {
+      const response = await fetchFromApi('/assist', {
         method: 'POST',
         body: { 
-          code, 
+          code,
           language, 
           mode: 'execute' 
         }
@@ -55,7 +55,7 @@ export function useCodeHelper() {
     setError(null);
     
     try {
-      const response = await fetchFromApi('/api/code', {
+      const response = await fetchFromApi('/api/assist', {
         method: 'POST',
         body: { 
           code: prompt, 

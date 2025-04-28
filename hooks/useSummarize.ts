@@ -24,7 +24,7 @@ export function useSummarize() {
     setError(null);
     
     try {
-      const response = await apiClient.post('/api/summarize', {
+      const response = await apiClient.post('/assist', {
         text,
         max_length: options.maxLength || 500,
         format: options.format || 'paragraph'
@@ -79,7 +79,7 @@ export function useSummarize() {
       formData.append('max_length', options.maxLength?.toString() || '500');
       formData.append('format', options.format || 'paragraph');
 
-      const response = await apiClient.postFormData('/api/summarize/file', formData);
+      const response = await apiClient.postFormData('/api/assist', formData);
       
       if (response.summary) {
         setSummary(response.summary);

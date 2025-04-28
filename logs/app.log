@@ -1495,3 +1495,10 @@
 {"timestamp": "2025-04-28T04:47:22.803864", "level": "INFO", "message": "Request: POST /api/summarize - Time: 0.0006s", "module": "main", "function": "__call__", "line": 157}
 {"timestamp": "2025-04-28T04:47:30.604034", "level": "INFO", "message": "Request: POST /api/summarize - Time: 0.0007s", "module": "main", "function": "__call__", "line": 157}
 {"timestamp": "2025-04-28T04:48:24.907321", "level": "INFO", "message": "Request: POST /api/summarize - Time: 0.0007s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T04:56:22.605160", "level": "INFO", "message": "Request: POST /api/code - Time: 0.0009s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T04:58:15.789022", "level": "INFO", "message": "Request: POST /api/code - Time: 0.0020s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T04:59:03.280571", "level": "INFO", "message": "Request: POST /api/code - Time: 0.0009s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T05:10:22.192192", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-28T05:10:22.192807", "level": "INFO", "message": "Request: POST /assist - Time: 1.2684s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T05:10:34.119599", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-28T05:10:34.120104", "level": "INFO", "message": "Request: POST /assist - Time: 3.6994s", "module": "main", "function": "__call__", "line": 157}

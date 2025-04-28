@@ -22,9 +22,9 @@ export function useTranslator() {
     setOutput(null);
     
     try {
-      const response = await fetchFromApi('/api/translate', {
+      const response = await fetchFromApi('/assist', {
         method: 'POST',
-        body: { input, sourceLang, targetLang }
+        body: { input, sourceLang, targetLang, mode: 'translate' }
       });
       
       if (response.error) {
