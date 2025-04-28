@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
-    const { code, language } = await req.json();
+    const { code, language, mode } = await req.json();
     
     if (!code || typeof code !== 'string') {
       return NextResponse.json(
@@ -22,6 +22,9 @@ export async function POST(req: NextRequest) {
     // Send to the backend
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://personal-ai-agent-0wsk.onrender.com';
     
+    // Determine the action based on mode
+    const action = mode === 'generate' ? 'generate' : 'execute';
+    
     const response = await fetch(`${backendUrl}/assist`, {
       method: 'POST',
       headers: {
@@ -33,7 +36,7 @@ export async function POST(req: NextRequest) {
         content: code,
         parameters: {
           language: language || 'python',
-          mode: 'execute',
+          action: action,
         },
       }),
       cache: 'no-store',

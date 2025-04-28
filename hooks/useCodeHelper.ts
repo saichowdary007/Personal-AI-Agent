@@ -7,6 +7,8 @@ export function useCodeHelper() {
   const [output, setOutput] = useState<string | null>(null);
   const [isRunning, setIsRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [prompt, setPrompt] = useState('');
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const runCode = async () => {
     if (!code.trim()) {
@@ -31,7 +33,7 @@ export function useCodeHelper() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ code, language }),
+        body: JSON.stringify({ code, language, mode: 'execute' }),
       });
       
       if (!res.ok) {
@@ -49,6 +51,50 @@ export function useCodeHelper() {
     }
   };
 
+  const generateCode = async () => {
+    if (!prompt.trim()) {
+      setError('Please enter a prompt to generate code');
+      return;
+    }
+
+    setIsGenerating(true);
+    setError(null);
+    
+    try {
+      // Get auth token from localStorage
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('You must be logged in to generate code');
+      }
+
+      const res = await fetch('/api/code', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ 
+          code: prompt, 
+          language, 
+          mode: 'generate' 
+        }),
+      });
+      
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || 'Failed to generate code');
+      }
+      
+      const data = await res.json();
+      setCode(data.output);
+    } catch (err: any) {
+      setError(err.message);
+      toast.error(err.message);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   return {
     code,
     setCode,
@@ -58,6 +104,10 @@ export function useCodeHelper() {
     isRunning,
     error,
     runCode,
+    prompt,
+    setPrompt,
+    isGenerating,
+    generateCode
   };
 }
 
