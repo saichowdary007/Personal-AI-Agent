@@ -68,7 +68,11 @@ export function useApiClient() {
       
       // Use the environment variable or fall back to the Render backend URL
       const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://127.0.0.1:8001';
-      const fullUrl = `${baseUrl}${endpoint}`;
+      
+      // Ensure endpoint starts with a forward slash for proper URL construction
+      const formattedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+      const fullUrl = `${baseUrl}${formattedEndpoint}`;
+      
       console.log('Making request to:', fullUrl);
       
       // Make the request

@@ -8,7 +8,7 @@ export interface EmailOptions {
 }
 
 interface EmailResponse {
-  content: string;
+  output: string;
   metadata: {
     tone?: string;
     format?: string;
@@ -34,11 +34,15 @@ export function useEmail() {
     setError(null);
     
     try {
-      const response = await fetchFromApi('/api/email', {
+      const response = await fetchFromApi('/assist', {
         method: 'POST',
         body: {
-          prompt,
-          options
+          type: 'email',
+          content: prompt,
+          parameters: {
+            tone: options.tone || 'professional',
+            format: options.format || 'full',
+          }
         }
       });
       
@@ -47,7 +51,7 @@ export function useEmail() {
       }
 
       setResult(response.data.content);
-      setMetadata(response.data.metadata);
+      setMetadata(response.data.metadata || {});
       return response.data;
     } catch (err: any) {
       const errorMessage = err.message || 'Failed to generate email';
