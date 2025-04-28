@@ -26,9 +26,12 @@ export function useCodeHelper() {
       const response = await fetchFromApi('/assist', {
         method: 'POST',
         body: { 
-          code,
-          language, 
-          mode: 'execute' 
+          type: 'code',
+          content: code,
+          parameters: {
+            language,
+            action: 'execute'
+          }
         }
       });
       
@@ -36,7 +39,7 @@ export function useCodeHelper() {
         throw new Error(response.error);
       }
       
-      setOutput(response.data.output);
+      setOutput(response.data.content);
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);
@@ -55,12 +58,15 @@ export function useCodeHelper() {
     setError(null);
     
     try {
-      const response = await fetchFromApi('/api/assist', {
+      const response = await fetchFromApi('/assist', {
         method: 'POST',
         body: { 
-          code: prompt, 
-          language, 
-          mode: 'generate' 
+          type: 'code',
+          content: prompt,
+          parameters: {
+            language,
+            action: 'generate'
+          }
         }
       });
       
@@ -68,7 +74,7 @@ export function useCodeHelper() {
         throw new Error(response.error);
       }
       
-      setCode(response.data.output);
+      setCode(response.data.content || response.data.output);
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);

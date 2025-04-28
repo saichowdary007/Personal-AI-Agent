@@ -1502,3 +1502,8 @@
 {"timestamp": "2025-04-28T05:10:22.192807", "level": "INFO", "message": "Request: POST /assist - Time: 1.2684s", "module": "main", "function": "__call__", "line": 157}
 {"timestamp": "2025-04-28T05:10:34.119599", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
 {"timestamp": "2025-04-28T05:10:34.120104", "level": "INFO", "message": "Request: POST /assist - Time: 3.6994s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T05:22:19.192389", "level": "INFO", "message": "Request: POST /api/assist - Time: 0.0019s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T05:22:36.589487", "level": "INFO", "message": "Request: POST /assist - Time: 0.0021s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T05:22:55.136433", "level": "INFO", "message": "Response sent", "module": "logger", "function": "log_response", "line": 91}
+{"timestamp": "2025-04-28T05:22:55.137304", "level": "INFO", "message": "Request: POST /assist - Time: 0.4388s", "module": "main", "function": "__call__", "line": 157}
+{"timestamp": "2025-04-28T05:29:55.419153", "level": "INFO", "message": "Request: POST /api/assist - Time: 0.0023s", "module": "main", "function": "__call__", "line": 157}
