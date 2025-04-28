@@ -191,7 +191,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "https://personal-ai-agent-beta.vercel.app",
-        "https://aiagentbysai.vercel.app"
+        "https://aiagentbysai.vercel.app",
+        "https://aiagentbysai.vercel.app"  # Your Vercel frontend domain
     ],  # Allow local dev and deployed frontend
     allow_credentials=True,
     allow_methods=["*"],
