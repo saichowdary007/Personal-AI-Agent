@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useApiClient } from './useApiClient';
 
 export function useTranslator() {
   const [input, setInput] = useState('');
@@ -8,6 +9,7 @@ export function useTranslator() {
   const [output, setOutput] = useState<string | null>(null);
   const [isTranslating, setIsTranslating] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { fetchFromApi } = useApiClient();
 
   const translate = async () => {
     if (!input.trim()) {
@@ -20,28 +22,16 @@ export function useTranslator() {
     setOutput(null);
     
     try {
-      // Get auth token from localStorage
-      const token = localStorage.getItem('token');
-      if (!token) {
-        throw new Error('You must be logged in to translate');
-      }
-
-      const res = await fetch('/api/translate', {
+      const response = await fetchFromApi('/api/translate', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ input, sourceLang, targetLang }),
+        body: { input, sourceLang, targetLang }
       });
       
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || 'Failed to translate');
+      if (response.error) {
+        throw new Error(response.error);
       }
       
-      const data = await res.json();
-      setOutput(data.output);
+      setOutput(response.data.output);
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);

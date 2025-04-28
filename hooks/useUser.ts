@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export interface User {
   name: string;
@@ -6,16 +7,27 @@ export interface User {
 }
 
 export function useUser() {
-  // In a real app, fetch user from API or context
-  const [user, setUser] = useState<User | null>({
-    name: 'Jane Doe',
-    avatarUrl: '/avatar-default.png',
-  });
+  const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
+
+  // Check for token on component mount
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      // In a real app, verify token and fetch user data
+      setUser({
+        name: 'Test User',
+        avatarUrl: '/avatar-default.png',
+      });
+    }
+  }, []);
 
   const logout = () => {
-    // Clear user session/token (stub)
+    // Clear token
+    localStorage.removeItem('token');
     setUser(null);
-    // Optionally redirect to login
+    // Redirect to login
+    router.push('/login');
   };
 
   return { user, logout };

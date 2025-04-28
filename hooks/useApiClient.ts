@@ -1,12 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-interface ApiOptions {
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
-  body?: any;
+export interface ApiOptions {
+  method?: string;
   headers?: Record<string, string>;
+  body?: any;
 }
 
-interface ApiResponse<T> {
+export interface ApiResponse<T = any> {
   data: T | null;
   error: string | null;
   loading: boolean;
@@ -14,6 +15,14 @@ interface ApiResponse<T> {
 
 export function useApiClient() {
   const [loading, setLoading] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const router = useRouter();
+
+  // Check authentication status on mount
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    setIsAuthenticated(!!token);
+  }, []);
 
   const fetchFromApi = useCallback(async <T = any>(
     endpoint: string,
@@ -24,7 +33,11 @@ export function useApiClient() {
     try {
       // Get the token from localStorage
       const token = localStorage.getItem('token');
-      console.log('Using token:', token);
+      if (!token) {
+        // Redirect to login if no token
+        router.push('/login');
+        return { data: null, error: 'Authentication required', loading: false };
+      }
       
       // Set up the headers
       const headers: Record<string, string> = {
@@ -33,9 +46,7 @@ export function useApiClient() {
       };
       
       // Add authentication if token exists
-      if (token) {
-        headers['Authorization'] = `Bearer ${token}`;
-      }
+      headers['Authorization'] = `Bearer ${token}`;
       
       // Create the fetch options
       const fetchOptions: RequestInit = {
@@ -51,7 +62,6 @@ export function useApiClient() {
       
       // Use the environment variable or fall back to the Render backend URL
       const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://personal-ai-agent-0wsk.onrender.com';
-      console.log('Making request to:', `${baseUrl}${endpoint}`);
       
       // Make the request
       const response = await fetch(`${baseUrl}${endpoint}`, fetchOptions);
@@ -59,13 +69,13 @@ export function useApiClient() {
       // Check for successful response
       if (!response.ok) {
         const errorData = await response.json().catch(() => null);
-        console.error('Error response:', errorData);
         const errorMessage = errorData?.detail || errorData?.error || `API error: ${response.status}`;
         
-        // Handle auth errors by clearing token
+        // Handle auth errors by clearing token and redirecting
         if (response.status === 401) {
-          console.log('Auth error, clearing token');
           localStorage.removeItem('token');
+          setIsAuthenticated(false);
+          router.push('/login');
         }
         
         throw new Error(errorMessage);
@@ -73,25 +83,18 @@ export function useApiClient() {
       
       // Parse and return the response data
       const data = await response.json();
-      console.log('Response data:', data);
-      
-      // Only set the token if it exists in the response
-      if (data.access_token) {
-        console.log('Setting new token:', data.access_token);
-        localStorage.setItem('token', data.access_token);
-      }
       
       return { data, error: null, loading: false };
     } catch (error: any) {
-      console.error('API request failed:', error);
       return { data: null, error: error.message || 'Unknown error', loading: false };
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [router]);
   
   return {
     loading,
+    isAuthenticated,
     fetchFromApi,
   };
 } 

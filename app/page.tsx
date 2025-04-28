@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import TodoList from '../components/Todo/TodoList';
 
@@ -23,6 +24,7 @@ const getUserFromToken = (token: string | null): User | null => {
 };
 
 const Home: React.FC = () => {
+  const router = useRouter();
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
 
@@ -30,23 +32,12 @@ const Home: React.FC = () => {
     const t = localStorage.getItem('token');
     setToken(t);
     setUser(getUserFromToken(t));
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setToken(null);
-    setUser(null);
-  };
-
-  if (!token || !user) {
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-center">
-        <h1 className="mb-4 text-2xl font-bold">Login Required</h1>
-        <p className="mb-4">Please log in to access the assistant.</p>
-        {/* Add your login form here or link to login page */}
-      </div>
-    );
-  }
+    
+    // Redirect to login if no token
+    if (!t) {
+      router.push('/login');
+    }
+  }, [router]);
 
   return (
     <div className="p-4 md:p-8">

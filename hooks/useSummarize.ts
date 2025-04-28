@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useApiClient } from './useApiClient';
 
 interface SummarizeOptions {
   format?: 'paragraph' | 'bullets' | 'outline';
@@ -23,6 +24,7 @@ export function useSummarize() {
   const [metadata, setMetadata] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { fetchFromApi } = useApiClient();
 
   const summarizeText = async (text: string, options: SummarizeOptions = {}) => {
     if (!text.trim()) {
@@ -34,33 +36,21 @@ export function useSummarize() {
     setError(null);
     
     try {
-      // Get auth token from localStorage
-      const token = localStorage.getItem('token');
-      if (!token) {
-        throw new Error('You must be logged in to summarize text');
-      }
-
-      const response = await fetch('/api/summarize', {
+      const response = await fetchFromApi('/api/summarize', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
+        body: {
           content: text,
           options
-        }),
+        }
       });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Error: ${response.status}`);
+      
+      if (response.error) {
+        throw new Error(response.error);
       }
 
-      const data: SummarizeResponse = await response.json();
-      setResult(data.content);
-      setMetadata(data.metadata);
-      return data;
+      setResult(response.data.content);
+      setMetadata(response.data.metadata);
+      return response.data;
     } catch (err: any) {
       const errorMessage = err.message || 'Failed to summarize text';
       setError(errorMessage);
@@ -80,7 +70,7 @@ export function useSummarize() {
     setIsLoading(true);
     setError(null);
     
-    // Get auth token from localStorage
+    // For file uploads, we need to use FormData, so we can't use the standard fetchFromApi directly
     const token = localStorage.getItem('token');
     if (!token) {
       setError('You must be logged in to summarize files');

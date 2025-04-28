@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useApiClient } from './useApiClient';
 
 export interface EmailOptions {
   tone?: 'professional' | 'casual' | 'formal' | 'friendly';
@@ -21,6 +22,7 @@ export function useEmail() {
   const [metadata, setMetadata] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { fetchFromApi } = useApiClient();
 
   const generateEmail = async (prompt: string, options: EmailOptions = {}) => {
     if (!prompt.trim()) {
@@ -32,33 +34,21 @@ export function useEmail() {
     setError(null);
     
     try {
-      // Get auth token from localStorage
-      const token = localStorage.getItem('token');
-      if (!token) {
-        throw new Error('You must be logged in to generate emails');
-      }
-
-      const response = await fetch('/api/email', {
+      const response = await fetchFromApi('/api/email', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
+        body: {
           prompt,
           options
-        }),
+        }
       });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Error: ${response.status}`);
+      
+      if (response.error) {
+        throw new Error(response.error);
       }
 
-      const data: EmailResponse = await response.json();
-      setResult(data.content);
-      setMetadata(data.metadata);
-      return data;
+      setResult(response.data.content);
+      setMetadata(response.data.metadata);
+      return response.data;
     } catch (err: any) {
       const errorMessage = err.message || 'Failed to generate email';
       setError(errorMessage);
