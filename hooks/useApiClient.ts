@@ -110,9 +110,61 @@ export function useApiClient() {
     }
   }, [router]);
   
+  const post = useCallback(async (endpoint: string, body: any) => {
+    const response = await fetchFromApi(endpoint, {
+      method: 'POST',
+      body
+    });
+    return response.data;
+  }, [fetchFromApi]);
+
+  const postFormData = useCallback(async (endpoint: string, formData: FormData) => {
+    setLoading(true);
+    
+    try {
+      const token = localStorage.getItem('token');
+      
+      if (!token) {
+        router.push('/login');
+        throw new Error('Authentication required');
+      }
+      
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: formData
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        const errorMessage = errorData?.detail || errorData?.error || `API error: ${response.status}`;
+        
+        if (response.status === 401) {
+          localStorage.removeItem('token');
+          setIsAuthenticated(false);
+          router.push('/login');
+        }
+        
+        throw new Error(errorMessage);
+      }
+      
+      const data = await response.json();
+      return data;
+    } catch (error: any) {
+      console.error('Form data upload failed:', error);
+      throw error;
+    } finally {
+      setLoading(false);
+    }
+  }, [router]);
+  
   return {
     loading,
     isAuthenticated,
     fetchFromApi,
+    post,
+    postFormData
   };
 } 

@@ -37,27 +37,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Get options if provided
-    let options: SummarizeOptions = {};
-    const optionsStr = formData.get('options') as string;
-    if (optionsStr) {
-      try {
-        options = JSON.parse(optionsStr);
-      } catch (e) {
-        console.error('Failed to parse options', e);
-      }
-    }
+    // Get parameters from form data
+    const format = formData.get('format') as string || 'paragraph';
+    const maxLengthStr = formData.get('max_length') as string;
+    const maxLength = maxLengthStr ? parseInt(maxLengthStr, 10) : 500;
 
     // Upload file to backend
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://personal-ai-agent-0wsk.onrender.com';
     
-  // Get the token from the Authorization header
-  const authHeader = req.headers.get('authorization');
-  const token = authHeader ? authHeader.replace('Bearer ', '') : null;
+    // Get the token from the Authorization header
+    const authHeader = req.headers.get('authorization');
+    const token = authHeader ? authHeader.replace('Bearer ', '') : null;
 
-  if (!token) {
-    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
-  }
+    if (!token) {
+      return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+    }
     
     // Create a new FormData instance to send to backend
     const backendFormData = new FormData();
@@ -85,14 +79,14 @@ export async function POST(req: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify({
         type: 'summarize',
         parameters: {
           filename,
-          max_length: options.maxLength || 500,
-          format: options.format || 'paragraph',
+          max_length: maxLength,
+          format: format,
         }
       }),
       cache: 'no-store',

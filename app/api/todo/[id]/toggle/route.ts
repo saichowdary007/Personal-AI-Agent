@@ -1,60 +1,58 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
-    const id = params.id;
+    const { id } = params;
     const { completed } = await req.json();
     
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://personal-ai-agent-0wsk.onrender.com';
+
+    // Get the token from the Authorization header
+    const authHeader = req.headers.get('authorization');
+    const token = authHeader ? authHeader.replace('Bearer ', '') : null;
+
+    console.log('[DEBUG] Todo Toggle PUT - Auth header:', authHeader?.substring(0, 15) + '...');
+    console.log('[DEBUG] Todo Toggle PUT - Token present:', !!token);
+    console.log('[DEBUG] Todo Toggle PUT - Todo ID:', id);
+    console.log('[DEBUG] Todo Toggle PUT - Completed value:', completed);
+
+    if (!token) {
+      console.log('[DEBUG] Todo Toggle PUT - Authentication failed: No token provided');
+      return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+    }
+
     if (typeof completed !== 'boolean') {
+      console.log('[DEBUG] Todo Toggle PUT - Validation failed: Invalid completed value', typeof completed);
       return NextResponse.json(
-        { error: 'Completed status must be a boolean' },
+        { error: 'Completed must be a boolean' },
         { status: 400 }
       );
     }
 
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://personal-ai-agent-0wsk.onrender.com';
-    
-    
-  // Get the token from the Authorization header
-  const authHeader = req.headers.get('authorization');
-  const token = authHeader ? authHeader.replace('Bearer ', '') : null;
+    console.log(`[DEBUG] Todo Toggle PUT - Making request to: ${backendUrl}/todos/${id}/toggle`);
 
-  if (!token) {
-    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
-  }
-    
-    // Since the backend doesn't have a direct toggle endpoint,
-    // we use a workaround by first getting the todo, then updating it
-    const getResponse = await fetch(`${backendUrl}/todos/${id}`, {
-      method: 'GET',
-      cache: 'no-store',
-    });
-
-    if (!getResponse.ok) {
-      throw new Error(`Failed to fetch todo: ${getResponse.status}`);
-    }
-
-    const todo = await getResponse.json();
-    
-    // Update the todo with the toggled status
-    const updateResponse = await fetch(`${backendUrl}/todos/${id}`, {
+    const response = await fetch(`${backendUrl}/todos/${id}/toggle`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify({ 
-        task: todo.text,
-        completed: completed
-      }),
+      body: JSON.stringify({ completed }),
       cache: 'no-store',
     });
 
-    if (!updateResponse.ok) {
-      throw new Error(`Failed to toggle todo: ${updateResponse.status}`);
+    console.log('[DEBUG] Todo Toggle PUT - Response status:', response.status);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.log('[DEBUG] Todo Toggle PUT - Error response:', errorText);
+      throw new Error(`Failed to toggle todo: ${response.status} - ${errorText}`);
     }
 
-    const data = await updateResponse.json();
+    const data = await response.json();
     return NextResponse.json(data);
   } catch (error: any) {
     console.error('Error toggling todo:', error);

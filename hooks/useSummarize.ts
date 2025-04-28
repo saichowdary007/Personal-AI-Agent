@@ -1,137 +1,112 @@
 import { useState } from 'react';
-import { toast } from 'react-hot-toast';
 import { useApiClient } from './useApiClient';
+import { toast } from 'react-hot-toast';
 
 interface SummarizeOptions {
-  format?: 'paragraph' | 'bullets' | 'outline';
   maxLength?: number;
-}
-
-interface SummarizeResponse {
-  content: string;
-  metadata: {
-    source_type?: string;
-    original_length?: number;
-    summary_length?: number;
-    format?: string;
-    usage?: any;
-    [key: string]: any;
-  };
+  format?: 'paragraph' | 'bullets';
 }
 
 export function useSummarize() {
-  const [result, setResult] = useState<string | null>(null);
-  const [metadata, setMetadata] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [summary, setSummary] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const { fetchFromApi } = useApiClient();
+  const apiClient = useApiClient();
 
   const summarizeText = async (text: string, options: SummarizeOptions = {}) => {
-    if (!text.trim()) {
-      setError('Please enter text to summarize');
-      return null;
+    if (!text) {
+      setError('Please provide text to summarize');
+      toast.error('Please provide text to summarize');
+      return;
     }
 
-    setIsLoading(true);
+    setLoading(true);
     setError(null);
     
     try {
-      const response = await fetchFromApi('/assist', {
-        method: 'POST',
-        body: {
-          type: 'summarize',
-          content: text,
-          parameters: {
-            format: options.format || 'paragraph',
-            max_length: options.maxLength || 500
-          }
-        }
+      const response = await apiClient.post('/api/summarize', {
+        text,
+        max_length: options.maxLength || 500,
+        format: options.format || 'paragraph'
       });
       
-      if (response.error) {
-        throw new Error(response.error);
+      if (response.summary) {
+        setSummary(response.summary);
+        return response.summary;
+      } else {
+        throw new Error('No summary returned from API');
       }
-
-      setResult(response.data.content);
-      setMetadata(response.data.metadata || {});
-      return response.data;
     } catch (err: any) {
       const errorMessage = err.message || 'Failed to summarize text';
       setError(errorMessage);
       toast.error(errorMessage);
       return null;
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   const summarizeFile = async (file: File, options: SummarizeOptions = {}) => {
     if (!file) {
-      setError('Please select a file to summarize');
+      setError('Please provide a file to summarize');
+      toast.error('Please provide a file to summarize');
       return null;
     }
 
-    setIsLoading(true);
+    // Check file type
+    const allowedTypes = ['application/pdf', 'text/plain'];
+    if (!allowedTypes.includes(file.type)) {
+      const errorMsg = 'Only PDF and TXT files are supported';
+      setError(errorMsg);
+      toast.error(errorMsg);
+      return null;
+    }
+
+    // Check file size (10MB max)
+    if (file.size > 10 * 1024 * 1024) {
+      const errorMsg = 'File size must be less than 10MB';
+      setError(errorMsg);
+      toast.error(errorMsg);
+      return null;
+    }
+
+    setLoading(true);
     setError(null);
-    
-    // For file uploads, we need to use FormData, so we can't use the standard fetchFromApi directly
-    const token = localStorage.getItem('token');
-    if (!token) {
-      setError('You must be logged in to summarize files');
-      setIsLoading(false);
-      toast.error('You must be logged in to summarize files');
-      return null;
-    }
-    
-    const formData = new FormData();
-    formData.append('file', file);
-    
-    // Add options as JSON string
-    formData.append('options', JSON.stringify({
-      format: options.format || 'paragraph',
-      max_length: options.maxLength || 500
-    }));
-    
+
     try {
-      const response = await fetch('/api/summarize/file', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        },
-        body: formData,
-      });
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('max_length', options.maxLength?.toString() || '500');
+      formData.append('format', options.format || 'paragraph');
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Error: ${response.status}`);
+      const response = await apiClient.postFormData('/api/summarize/file', formData);
+      
+      if (response.summary) {
+        setSummary(response.summary);
+        return response.summary;
+      } else {
+        throw new Error('No summary returned from API');
       }
-
-      const data: SummarizeResponse = await response.json();
-      setResult(data.content);
-      setMetadata(data.metadata || {});
-      return data;
     } catch (err: any) {
       const errorMessage = err.message || 'Failed to summarize file';
       setError(errorMessage);
       toast.error(errorMessage);
       return null;
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   const reset = () => {
-    setResult(null);
-    setMetadata(null);
+    setSummary(null);
     setError(null);
   };
 
   return {
     summarizeText,
     summarizeFile,
-    result,
-    metadata,
-    isLoading,
+    loading,
+    summary,
     error,
     reset
   };
