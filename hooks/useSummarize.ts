@@ -36,11 +36,15 @@ export function useSummarize() {
     setError(null);
     
     try {
-      const response = await fetchFromApi('/api/summarize', {
+      const response = await fetchFromApi('/assist', {
         method: 'POST',
         body: {
+          type: 'summarize',
           content: text,
-          options
+          parameters: {
+            format: options.format || 'paragraph',
+            max_length: options.maxLength || 500
+          }
         }
       });
       
@@ -49,7 +53,7 @@ export function useSummarize() {
       }
 
       setResult(response.data.content);
-      setMetadata(response.data.metadata);
+      setMetadata(response.data.metadata || {});
       return response.data;
     } catch (err: any) {
       const errorMessage = err.message || 'Failed to summarize text';
@@ -83,7 +87,10 @@ export function useSummarize() {
     formData.append('file', file);
     
     // Add options as JSON string
-    formData.append('options', JSON.stringify(options));
+    formData.append('options', JSON.stringify({
+      format: options.format || 'paragraph',
+      max_length: options.maxLength || 500
+    }));
     
     try {
       const response = await fetch('/api/summarize/file', {
@@ -101,7 +108,7 @@ export function useSummarize() {
 
       const data: SummarizeResponse = await response.json();
       setResult(data.content);
-      setMetadata(data.metadata);
+      setMetadata(data.metadata || {});
       return data;
     } catch (err: any) {
       const errorMessage = err.message || 'Failed to summarize file';
