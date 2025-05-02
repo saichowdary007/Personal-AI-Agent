@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useCodeHelper } from '@/hooks/useCodeHelper';
 import CodeEditor from '@/components/CodeHelper/CodeEditor';
 import RunButton from '@/components/CodeHelper/RunButton';
@@ -21,13 +21,18 @@ const CodeHelperPage: React.FC = () => {
     setPrompt,
     isGenerating,
     generateCode,
-    codeExplanation
+    codeExplanation,
+    clearOutput,
+    clearAll
   } = useCodeHelper();
   
   // Keep track of what's currently displayed in the output area
   const [displayMode, setDisplayMode] = useState<'execution' | 'explanation'>('execution');
   const [displayedOutput, setDisplayedOutput] = useState<string | null>(null);
   
+  // Add a ref to scroll to output when it changes
+  const outputRef = useRef<HTMLDivElement>(null);
+
   // Update the displayed output when code is executed or generated
   useEffect(() => {
     if (output) {
@@ -38,6 +43,15 @@ const CodeHelperPage: React.FC = () => {
       setDisplayedOutput(codeExplanation);
     } else {
       setDisplayedOutput(null);
+    }
+    
+    // Scroll to output section when it changes
+    if ((output || codeExplanation) && outputRef.current) {
+      if (window.innerWidth < 768) { // Only on mobile
+        setTimeout(() => {
+          outputRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
     }
   }, [output, codeExplanation]);
 
@@ -104,13 +118,21 @@ const CodeHelperPage: React.FC = () => {
                 <option value="swift">Swift</option>
               </select>
             </div>
-            <button
-              onClick={generateCode}
-              className="w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-offset-zinc-800"
-              disabled={isGenerating || !prompt.trim()}
-            >
-              {isGenerating ? 'Generating...' : 'Generate Code'}
-            </button>
+            <div className="flex justify-between">
+              <button
+                onClick={generateCode}
+                className="rounded-md bg-blue-600 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-offset-zinc-800"
+                disabled={isGenerating || !prompt.trim()}
+              >
+                {isGenerating ? 'Generating...' : 'Generate Code'}
+              </button>
+              <button
+                onClick={clearAll}
+                className="rounded px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+              >
+                Clear All
+              </button>
+            </div>
           </div>
 
           <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
@@ -135,13 +157,22 @@ const CodeHelperPage: React.FC = () => {
                 disabled={!code.trim()}
               />
               
-              <button
-                onClick={() => copyToClipboard(code)}
-                className="rounded px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
-                disabled={!code.trim()}
-              >
-                Copy Code
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => copyToClipboard(code)}
+                  className="rounded px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                  disabled={!code.trim()}
+                >
+                  Copy Code
+                </button>
+                <button
+                  onClick={() => setCode('')}
+                  className="rounded px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                  disabled={!code.trim()}
+                >
+                  Clear
+                </button>
+              </div>
             </div>
 
             {error && (
@@ -152,7 +183,7 @@ const CodeHelperPage: React.FC = () => {
           </div>
         </div>
 
-        <div>
+        <div ref={outputRef}>
           <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
             <div className="mb-2 flex items-center justify-between">
               <h3 className="font-semibold text-zinc-700 dark:text-zinc-300">
@@ -168,12 +199,20 @@ const CodeHelperPage: React.FC = () => {
                   </button>
                 )}
                 {displayedOutput && (
-                  <button
-                    onClick={() => copyToClipboard(displayedOutput)}
-                    className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
-                  >
-                    Copy
-                  </button>
+                  <>
+                    <button
+                      onClick={() => copyToClipboard(displayedOutput)}
+                      className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+                    >
+                      Copy
+                    </button>
+                    <button
+                      onClick={clearOutput}
+                      className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+                    >
+                      Clear
+                    </button>
+                  </>
                 )}
               </div>
             </div>

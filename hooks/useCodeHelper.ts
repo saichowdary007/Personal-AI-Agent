@@ -40,7 +40,8 @@ export function useCodeHelper() {
         throw new Error(response.error);
       }
       
-      setOutput(response.data.content);
+      // Make sure we're only setting the output, not modifying the code
+      setOutput(response.data.content || response.data.output || 'Execution completed successfully.');
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);
@@ -80,23 +81,32 @@ export function useCodeHelper() {
       // Extract the code and explanation
       const content = response.data.content || response.data.output || '';
       
-      // Try to identify if there's a clear code block vs explanation
-      // This is a simple heuristic - the server should ideally separate these
-      const codeBlockMatch = content.match(/```[\w\s]*\n([\s\S]*?)```/);
+      // Improved parsing of code blocks and explanations
+      const codeBlockMatches = content.match(/```[\w\s]*\n([\s\S]*?)```/g);
       
-      if (codeBlockMatch) {
-        // If there's a markdown code block, extract the code and set the rest as explanation
-        const extractedCode = codeBlockMatch[1].trim();
-        const fullText = content.trim();
-        
-        // Replace the first code block with a placeholder to get the explanation
-        const explanation = fullText.replace(/```[\w\s]*\n[\s\S]*?```/, '')
-          .trim();
-        
-        setCode(extractedCode);
-        
-        if (explanation) {
-          setCodeExplanation(explanation);
+      if (codeBlockMatches && codeBlockMatches.length > 0) {
+        // Extract the code from the first code block
+        const codeBlockMatch = codeBlockMatches[0].match(/```[\w\s]*\n([\s\S]*?)```/);
+        if (codeBlockMatch && codeBlockMatch[1]) {
+          const extractedCode = codeBlockMatch[1].trim();
+          
+          // Set the code in the editor
+          setCode(extractedCode);
+          
+          // Create explanation by removing all code blocks from the content
+          let explanation = content;
+          codeBlockMatches.forEach((block: string) => {
+            explanation = explanation.replace(block, '');
+          });
+          
+          // Clean up and set the explanation
+          explanation = explanation.trim();
+          if (explanation) {
+            setCodeExplanation(explanation);
+          }
+        } else {
+          // If code extraction failed, just set the whole content
+          setCode(content);
         }
       } else {
         // If no clear code block, set the whole response as code
@@ -109,6 +119,19 @@ export function useCodeHelper() {
     } finally {
       setIsGenerating(false);
     }
+  };
+
+  const clearOutput = () => {
+    setOutput(null);
+    setError(null);
+  };
+
+  const clearAll = () => {
+    setCode('');
+    setOutput(null);
+    setCodeExplanation(null);
+    setError(null);
+    setPrompt('');
   };
 
   return {
@@ -124,7 +147,9 @@ export function useCodeHelper() {
     setPrompt,
     isGenerating,
     generateCode,
-    codeExplanation
+    codeExplanation,
+    clearOutput,
+    clearAll
   };
 }
 
