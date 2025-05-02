@@ -6,6 +6,14 @@ import { toast } from 'react-hot-toast';
 const languages = [
   { code: 'en', name: 'English' },
   { code: 'es', name: 'Spanish' },
+  { code: 'te', name: 'Telugu' },
+  { code: 'hi', name: 'Hindi' },
+  { code: 'mr', name: 'Marathi' },
+  { code: 'ta', name: 'Tamil' },
+  { code: 'bn', name: 'Bengali' },
+  { code: 'gu', name: 'Gujarati' },
+  { code: 'kn', name: 'Kannada' },
+  { code: 'ml', name: 'Malayalam' },
   { code: 'fr', name: 'French' },
   { code: 'de', name: 'German' },
   { code: 'it', name: 'Italian' },
@@ -15,7 +23,7 @@ const languages = [
   { code: 'ja', name: 'Japanese' },
   { code: 'ko', name: 'Korean' },
   { code: 'ar', name: 'Arabic' },
-  { code: 'hi', name: 'Hindi' },
+  
 ];
 
 const TranslatorPage: React.FC = () => {
