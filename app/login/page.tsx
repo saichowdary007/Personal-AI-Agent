@@ -110,7 +110,7 @@ const LoginPage: React.FC = () => {
         </form>
 
         <div className="mt-5 sm:mt-6 text-center text-xxs sm:text-xs text-zinc-500 dark:text-zinc-400">
-          <p>Use username: <b></b>, password: <b></b></p>
+          <p>Hope you learn something new today!</p>
         </div>
       </div>
     </div>
