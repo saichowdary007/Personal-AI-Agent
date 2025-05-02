@@ -34,8 +34,8 @@ const Header: React.FC = () => {
     <header className="sticky top-0 z-30 flex h-14 sm:h-16 w-full items-center justify-between border-b border-zinc-200 bg-white px-3 sm:px-4 dark:border-zinc-800 dark:bg-zinc-900 md:px-8">
       {/* Left: App Title */}
       <div className="flex items-center gap-1 sm:gap-2">
-        <span className="hidden sm:inline text-xs text-zinc-500 dark:text-zinc-400">AI</span>
-        <span className="text-base sm:text-lg font-bold tracking-tight">Assistant</span>
+        <span className="hidden sm:inline text-xs text-zinc-500 dark:text-zinc-400"></span>
+        <span className="text-base sm:text-lg font-bold tracking-tight">Personal AI Assistant</span>
       </div>
       
       {/* Center: Dynamic Page Title */}
