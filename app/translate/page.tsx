@@ -8,6 +8,14 @@ import remarkGfm from 'remark-gfm';
 // Languages supported by the translator
 const languages = [
   { code: 'en', name: 'English' },
+  { code: 'te', name: 'Telugu' },
+  { code: 'hi', name: 'Hindi' },
+  { code: 'mr', name: 'Marathi' },
+  { code: 'ta', name: 'Tamil' },
+  { code: 'bn', name: 'Bengali' },
+  { code: 'gu', name: 'Gujarati' },
+  { code: 'kn', name: 'Kannada' },
+  { code: 'ml', name: 'Malayalam' },
   { code: 'es', name: 'Spanish' },
   { code: 'fr', name: 'French' },
   { code: 'de', name: 'German' },
@@ -18,8 +26,6 @@ const languages = [
   { code: 'zh', name: 'Chinese' },
   { code: 'ru', name: 'Russian' },
   { code: 'ar', name: 'Arabic' },
-  { code: 'hi', name: 'Hindi' },
-  { code: 'bn', name: 'Bengali' },
   { code: 'tr', name: 'Turkish' },
   { code: 'vi', name: 'Vietnamese' },
   { code: 'sv', name: 'Swedish' },

@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCodeHelper } from '@/hooks/useCodeHelper';
 import CodeEditor from '@/components/CodeHelper/CodeEditor';
 import RunButton from '@/components/CodeHelper/RunButton';
@@ -20,12 +20,41 @@ const CodeHelperPage: React.FC = () => {
     prompt,
     setPrompt,
     isGenerating,
-    generateCode
+    generateCode,
+    codeExplanation
   } = useCodeHelper();
+  
+  // Keep track of what's currently displayed in the output area
+  const [displayMode, setDisplayMode] = useState<'execution' | 'explanation'>('execution');
+  const [displayedOutput, setDisplayedOutput] = useState<string | null>(null);
+  
+  // Update the displayed output when code is executed or generated
+  useEffect(() => {
+    if (output) {
+      setDisplayMode('execution');
+      setDisplayedOutput(output);
+    } else if (codeExplanation) {
+      setDisplayMode('explanation');
+      setDisplayedOutput(codeExplanation);
+    } else {
+      setDisplayedOutput(null);
+    }
+  }, [output, codeExplanation]);
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     toast.success('Copied to clipboard!');
+  };
+  
+  // Toggle between showing execution output and explanation
+  const toggleOutputMode = () => {
+    if (displayMode === 'execution' && codeExplanation) {
+      setDisplayMode('explanation');
+      setDisplayedOutput(codeExplanation);
+    } else if (displayMode === 'explanation' && output) {
+      setDisplayMode('execution');
+      setDisplayedOutput(output);
+    }
   };
 
   return (
@@ -126,21 +155,33 @@ const CodeHelperPage: React.FC = () => {
         <div>
           <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
             <div className="mb-2 flex items-center justify-between">
-              <h3 className="font-semibold text-zinc-700 dark:text-zinc-300">Output</h3>
-              {output && (
-                <button
-                  onClick={() => copyToClipboard(output)}
-                  className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
-                >
-                  Copy Output
-                </button>
-              )}
+              <h3 className="font-semibold text-zinc-700 dark:text-zinc-300">
+                {displayMode === 'execution' ? 'Execution Output' : 'Code Explanation'}
+              </h3>
+              <div className="flex gap-2">
+                {output && codeExplanation && (
+                  <button
+                    onClick={toggleOutputMode}
+                    className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+                  >
+                    Show {displayMode === 'execution' ? 'Explanation' : 'Output'}
+                  </button>
+                )}
+                {displayedOutput && (
+                  <button
+                    onClick={() => copyToClipboard(displayedOutput)}
+                    className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+                  >
+                    Copy
+                  </button>
+                )}
+              </div>
             </div>
-            {isRunning ? (
+            {isRunning || isGenerating ? (
               <div className="h-[500px] animate-pulse rounded bg-zinc-100 dark:bg-zinc-700"></div>
             ) : (
               <div className="h-[500px] overflow-auto rounded bg-zinc-50 p-4 text-sm dark:bg-zinc-900">
-                {output ? (
+                {displayedOutput ? (
                   <div className="prose prose-sm dark:prose-invert max-w-none">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
@@ -163,12 +204,14 @@ const CodeHelperPage: React.FC = () => {
                         blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-zinc-300 dark:border-zinc-500 pl-3 py-1 italic my-2" {...props} />,
                       }}
                     >
-                      {output}
+                      {displayedOutput}
                     </ReactMarkdown>
                   </div>
                 ) : (
                   <div className="flex h-full items-center justify-center">
-                    <span className="text-zinc-500">Run your code to see the output here.</span>
+                    <span className="text-zinc-500">
+                      {isGenerating ? 'Generating code...' : 'Run your code or generate code to see output here.'}
+                    </span>
                   </div>
                 )}
               </div>
