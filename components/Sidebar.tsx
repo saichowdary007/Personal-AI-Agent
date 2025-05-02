@@ -57,7 +57,7 @@ const Sidebar: React.FC = () => {
       
       {/* Mobile toggle button - outside the nav for better accessibility */}
       <button
-        className="fixed left-4 top-20 z-30 rounded-full bg-blue-600 text-white p-3 shadow-lg md:hidden"
+        className="fixed left-2 top-[4.5rem] z-30 rounded-full bg-blue-600 text-white p-2 shadow-lg md:hidden"
         aria-label={open ? 'Close sidebar' : 'Open sidebar'}
         onClick={() => setOpen((v) => !v)}
       >
